@@ -1,0 +1,121 @@
+
+/* upperbody */
+.upperbody{
+display: grid;
+grid-template-columns: 60% 40%;
+grid-template-rows: max-content;
+/* column-gap: -100px; */
+/* justify-content:center; */
+}
+.top-carousel{
+    /* border: 1px solid black; */
+    width: 90%;
+    /* margin-left: 10%; */
+    /* margin-right: 40%; */
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    /* height: 500px; */
+    padding-bottom: 10%;
+    padding-left: 10%;
+    padding-right:10% ;
+    max-height: fit-content;
+    border-radius: 10%;
+    padding-top: 100px;
+    /* padding-top: 100px; */
+}
+#upperbodyimg{
+    width: 100%;
+/* border: 1px solid black; */
+margin-right: 20%;
+position: relative;
+background-color: transparent;
+}
+
+/* middle upperbody */
+.middleupperbody{
+    margin-top:50px;
+}
+
+.servicescontainer{
+    width: 80%;
+    margin: 10%;
+    margin-top: 50px;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows:fitcontent;
+    column-gap: 20px;
+
+}
+.service{
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.benefitscontainer{
+    width: 80%;
+    margin: 10%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows:max-content;
+    column-gap: 20px; 
+}
+/* .doctorincarousel{
+    width: 20%;
+    text-align: center;
+} */
+.doctorcarousel{
+width: 80%;
+margin:0px 20% 20px 7%
+}
+.workflowcontainer{
+    background-color: #fcfaff;
+    width: 80%;
+    margin: 10%;
+    margin-top: 50px;
+    /* border: 1px solid black; */
+    display: grid;
+    margin-bottom: -20px;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows:fitcontent;
+    column-gap: 20px; 
+}
+/* middle upperbody */
+/* upperbody */
+
+
+
+
+/* lower body */
+.proceduresbutton{
+margin-left: 15%;
+margin-right: 10%;
+box-shadow: #43475545 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+border-radius: 10px;
+margin-top: 20px;
+padding: 10px;
+}
+
+.lowerbody{
+margin-top: 50px;
+}
+
+.appdiv{
+display: grid;
+width: 80%;
+grid-template-columns: repeat(3,1fr);
+grid-template-rows: max-content;
+column-gap: 50px;
+margin: 100px 10% 0px 10%;
+}
+
+.appinfo{
+/* border: 1px solid black; */
+
+}
+
+
+/* lower body */
+
