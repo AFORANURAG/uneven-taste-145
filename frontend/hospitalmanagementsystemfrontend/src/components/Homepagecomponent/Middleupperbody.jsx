@@ -6,7 +6,6 @@ import { Carousel } from "react-responsive-carousel";
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import {Button as Chakrabutton} from "@chakra-ui/react"
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
-
 import Typography from '@mui/material/Typography';
 import MediaCard from "./Doctorcards"
 import { backOut } from "framer-motion";
