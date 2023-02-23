@@ -334,8 +334,6 @@ Looking for a procedure
     <Button variant={"outlined"} color={"success"}  sx={{ml:"20px",mt:"20px",fontSize:"10px",borderRadius:"20px"}}>{el.procedure}</Button>
     )
 })}
-
-
 </div>
 
 </div>
