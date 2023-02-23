@@ -11,12 +11,18 @@ import "./styles/homepage.css"
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import Navbar from "./components/Homepagecomponent/Navbar"
 import Doctor from "./components/Doctor"
+import Userdashboard from "./components/Userdashboard";
+// Pass="mL5rTrVzs7"
+// JWT_SECRET=AYKProject
+// JWT_REFRESH_SECRET=AYKProject
 function App() {
   return (
     <Box>
     <Usercontextprovider>
     <Navbar/>  
     <Routes>
+    
+    <Route path="/userdashboard" element={<Userdashboard/>}/>
     <Route path="/doctordashboard" element={<Doctor/>}/>
 <Route path="/" element={<Homepage/>}/>  
 <Route path="/signup" element={<Signup/>}/>

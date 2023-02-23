@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 
-const Links = ["Book Appointment",'Dashboard',"Contact-us at:+917836068460"];
+const Links = ["Book Appointment","Contact-us at:+917836068460"];
 
 const NavLink = ({ children }) => {
   return( 
@@ -109,7 +109,18 @@ export default function withAction() {
         </Button>
           </Routerlink> 
 
-         
+          <Routerlink to={"/userdashboard"}>
+          <Button
+          variant={'solid'}
+          colorScheme={'teal'}
+          size={'sm'}
+          mr={4}
+          leftIcon={<AddIcon />}>
+         User Dashboard
+        </Button>
+          </Routerlink> 
+
+
           </Flex>
         </Flex>
 
