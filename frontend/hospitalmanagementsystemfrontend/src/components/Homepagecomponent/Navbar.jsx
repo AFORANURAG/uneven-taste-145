@@ -24,7 +24,7 @@ const Links = ["Book Appointment",'Dashboard',"Contact-us at:+917836068460"];
 
 const NavLink = ({ children }) => {
   return( 
-    <Link
+    <Routerlink
     px={5}
     py={5}
     // mx={5}
@@ -36,7 +36,7 @@ const NavLink = ({ children }) => {
     href={'#'}
     >
    {children}
-  </Link>
+  </Routerlink>
   )
   };
 
@@ -97,6 +97,18 @@ export default function withAction() {
           Signup
         </Button>
           </Routerlink> 
+
+          <Routerlink to={"/doctordashboard"}>
+          <Button
+          variant={'solid'}
+          colorScheme={'teal'}
+          size={'sm'}
+          mr={4}
+          leftIcon={<AddIcon />}>
+          Doctor dashboard
+        </Button>
+          </Routerlink> 
+
          
           </Flex>
         </Flex>

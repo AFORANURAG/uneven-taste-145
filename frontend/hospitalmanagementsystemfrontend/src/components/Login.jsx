@@ -32,7 +32,6 @@ import {
             <FormControl id="">
             <FormLabel>Password</FormLabel>
             <Select type="password">
-            
             <option value='Patient'>Patient</option>
             <option value='Doctor'>Doctor</option>
             <option value='Admin'>Admin</option>
@@ -68,4 +67,4 @@ import {
         
       </Stack>
     );
-  }
+}
