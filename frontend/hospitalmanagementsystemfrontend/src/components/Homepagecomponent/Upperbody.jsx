@@ -7,6 +7,9 @@ import appointment from "../../assets/images/bookingappointment.png"
 import maledoctor from "../../assets/images/doctor-male.jpg"
 import femaledoctor from "../../assets/images/woman-doctor.jpg"
 import { Button } from '@mui/material';
+
+
+
 export default function Upperbody() {
   return (
 
@@ -31,7 +34,10 @@ export default function Upperbody() {
 </Carousel>
   </div>
 <div id="upperbodyimg">
+
 <img style={{marginTop:"15%",marginRight:"20%"}}  src="https://10to8.com/hs-fs/hubfs/Hero%20Image%20WOMAN_1600%20(2).jpg?width=1600&height=1067&name=Hero%20Image%20WOMAN_1600%20(2).jpg" alt="" />
+<h1 class="h1" >Every appointment <span>matters</span></h1>
+
 <Button variant={"contained"} sx={{mt:"100px"}} color={"success"}>Book An Appointment now</Button>
 <Button variant={"contained"} color={"info"} sx={{ml:"20%",mr:"10%",mt:"100px"}}>
 Call now

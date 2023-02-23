@@ -7,6 +7,16 @@ grid-template-rows: max-content;
 /* column-gap: -100px; */
 /* justify-content:center; */
 }
+h1, .h1 {
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    text-decoration: none;
+    color: #363636;
+    font-size: 58px;
+    text-transform: none;
+}
+
 .top-carousel{
     /* border: 1px solid black; */
     width: 90%;
@@ -45,11 +55,12 @@ background-color: transparent;
     grid-template-columns: repeat(8,1fr);
     grid-template-rows:fitcontent;
     column-gap: 20px;
-
+    color:#160038
 }
+
 .service{
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
 }
 .benefitscontainer{
     width: 80%;
@@ -116,6 +127,20 @@ margin: 100px 10% 0px 10%;
 
 }
 
+.reviewssection{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 20%;
+}
 
 /* lower body */
 
+
+
+/*footer*/
+.footerbox{
+background-image: linear-gradient(to right bottom, rgb(61, 194, 218), rgb(250, 172, 64));
+}
+/*footer*/
+
+/*      */

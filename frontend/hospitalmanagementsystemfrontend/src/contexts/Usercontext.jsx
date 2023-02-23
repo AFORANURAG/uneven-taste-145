@@ -2,7 +2,8 @@ import React,{createContext, useState} from 'react'
 
  let Usercontext=createContext()
 
-  function Usercontextprovider({children}) {
+function Usercontextprovider({children}) {
+console.log({children})
 const [token,setToken]=useState("kldjlasjdlkasjkjldkaj");
 return (
     <Usercontext.Provider value={{token,setToken}}>
