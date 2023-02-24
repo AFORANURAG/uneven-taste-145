@@ -53,7 +53,7 @@ background-color: transparent;
     /* border: 1px solid black; */
     display: grid;
     grid-template-columns: repeat(8,1fr);
-    grid-template-rows:fitcontent;
+    grid-template-rows:max-content;
     column-gap: 20px;
     color:#160038
 }
@@ -79,7 +79,9 @@ background-color: transparent;
 } */
 .doctorcarousel{
 width: 80%;
-margin:0px 20% 20px 7%
+margin:0px 20% 20px 7%;
+/* display: grid; */
+/* grid-template-columns: repeat(3,1fr); */
 }
 .workflowcontainer{
     background-color: #fcfaff;
@@ -93,6 +95,104 @@ margin:0px 20% 20px 7%
     grid-template-rows:fitcontent;
     column-gap: 20px; 
 }
+@media screen  and (max-width: 950px){
+.upperbody{
+display: grid;
+grid-template-columns: repeat(1,1fr);
+grid-template-rows: 200px repeat;
+}
+#appointmentbdy{
+    margin-left: 10%;
+}
+.servicescontainer{
+    width: 80%;
+    margin: 10%;
+    margin-top: 50px;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows:2 repeat();
+    column-gap: 20px;
+    color:#160038;
+    margin-bottom: 20%;
+
+}
+.benefitscontainer{
+    width: 80%;
+    margin: 10%;
+    margin-left: 15%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows:2 repeat();
+    column-gap: 20px; 
+}
+.workflowcontainer{
+    width: 80%;
+    margin: 10%;
+    margin-left: 15%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows:2 repeat();
+    column-gap: 20px;    
+}
+
+}
+
+
+
+@media screen  and (max-width: 650px){
+    .upperbody{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: 200px repeat;
+    }
+    #appointmentbdy{
+        margin-left: 10%;
+    }
+    .servicescontainer{
+        width: 80%;
+        margin: 10%;
+        margin-top: 50px;
+        /* border: 1px solid black; */
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows:3 repeat();
+        column-gap: 20px;
+        color:#160038;
+        margin-bottom: 20%;
+    
+    }
+    .benefitscontainer{
+        width: 80%;
+        margin: 10%;
+        margin-left: 15%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        /* border: 1px solid black; */
+      
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows:3 repeat();
+    }
+    .workflowcontainer{
+        width: 80%;
+        margin: 10%;
+        margin-left: 15%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        /* border: 1px solid black; */
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows:3 repeat();
+        column-gap: 20px;    
+    }
+    
+    }
 /* middle upperbody */
 /* upperbody */
 
@@ -101,9 +201,8 @@ margin:0px 20% 20px 7%
 
 /* lower body */
 .proceduresbutton{
-margin-left: 15%;
+margin-left: 25%;
 margin-right: 10%;
-box-shadow: #43475545 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 border-radius: 10px;
 margin-top: 20px;
 padding: 10px;

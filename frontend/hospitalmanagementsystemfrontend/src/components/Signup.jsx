@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState,useEffect} from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,30 +14,109 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as Routerlink} from 'react-router-dom';
+import {Input} from "@chakra-ui/react"
+import {Usercontext} from "../contexts/Usercontext"
+import axios from 'axios';
+import backendurl from "../backendurl/index"
+import {ValidateEmail,CheckPassword} from "../validators/Validators"
+import {Modalbox} from './Modal';
+import {modalcontext} from  "../contexts/modalcontext"
+import { useNavigate } from 'react-router-dom';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from '@chakra-ui/react'
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
+  
+    <Link color="inherit" href="https://mui.com/">
+  
+    </Link>{' '}
+ 
       {'.'}
     </Typography>
   );
 }
 
 const theme = createTheme();
-
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
+  const {show,setShow,handleClose,handleShow}=React.useContext(modalcontext);
+  const {token,setToken,userinfo,setuserInfo}=React.useContext(Usercontext);
+  const [selectedDate, setSelectedDate] =React.useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+console.log(userinfo)
+
+
+function handlechanges(e){
+console.log(selectedDate)
+  let {name,value} = e.target 
+console.log(name,value);
+setuserInfo({...userinfo,[name]:value})
+}
+
+// React.useEffect(()=>{
+//   handleSubmit()
+// })
+
+const handleSubmit = (event) => {
+event.preventDefault();
+const data = new FormData(event.currentTarget);
+console.log({
       email: data.get('email'),
       password: data.get('password'),
-    });
-  };
+});
+let emailofuser=data.get("email");
+let password=data.get("password")
+if(ValidateEmail(emailofuser)&&CheckPassword(password)){
+  axios.post(backendurl+'/auth/register', {
+    email: data.get('email'),
+    password: data.get('password'),
+    last_name:userinfo.lastName,
+    first_name:userinfo.firstName,
+  }).then((res)=>{
+    console.log("sign up successfull",res.json())
+  })
+  .catch((error)=>{
+      console.log(error)
+    })
+setIsSubmitted(true);
+onOpen()
+// navigate('/login');  
+}else{
+handleShow()
+}
+console.log("hello world")
+}
+function handleclose(){
+  console.log("handle close is clicked")
+  onClose();
+  navigate('/login');
+}
+function continuewithgoogle(){
+  console.log("continue with google is clicked")
+  window.open("http://localhost:8080/oauth/auth/google")
+}
+
+useEffect(() => {
+  // Extract the access_token query parameter from the URL
+  const params = new URLSearchParams(window.location.search);
+  const accessToken = params.get('access_token');
+  const email = params.get('email');
+console.log(email)
+console.log(accessToken)
+console.log("working")
+}, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -53,13 +133,14 @@ export default function SignUp() {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography  component="h1" variant="h5">
             Sign up
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                onChange={handlechanges}
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -72,6 +153,7 @@ export default function SignUp() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
+                  onChange={handlechanges}
                   fullWidth
                   id="lastName"
                   label="Last Name"
@@ -79,7 +161,20 @@ export default function SignUp() {
                   autoComplete="family-name"
                 />
               </Grid>
-              <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
+            <Input
+           onChange={(e)=>{setSelectedDate(e.target.value)}}
+            placeholder="Select Date and Time"
+            size="md"
+            type="datetime-local"
+            name="dob"
+          label="Select Date"
+          value={selectedDate}
+           />
+
+            </Grid>
+            <Grid item xs={12}>
+            {selectedDate}
                 <TextField
                   required
                   fullWidth
@@ -101,13 +196,11 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
+               
               </Grid>
             </Grid>
             <Button
+          
               type="submit"
               fullWidth
               variant="contained"
@@ -115,6 +208,17 @@ export default function SignUp() {
             >
               Sign Up
             </Button>
+
+            <Button
+          onClick={continuewithgoogle}
+            type="submit"
+            fullWidth
+            variant="contained"
+            color={"success"}
+            sx={{ mt: 3, mb: 2 }}
+          >
+           Continue with google
+          </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Routerlink  to={"/login"}>
@@ -125,7 +229,29 @@ export default function SignUp() {
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
+        <Modalbox/>
+     <>
+     <>
+     <Modal isOpen={isOpen && isSubmitted} onClose={onClose}>
+       <ModalOverlay />
+       <ModalContent>
+         <ModalHeader>Modal Title</ModalHeader>
+         <ModalCloseButton />
+         <ModalBody>
+           Sign up sucessfull!, you will be redirected to login page
+         </ModalBody>
+
+         <ModalFooter>
+           <Button colorScheme='blue' mr={3} onClick={handleclose}>
+             Close
+           </Button>
+        
+         </ModalFooter>
+       </ModalContent>
+     </Modal>
+   </>
+     </>   
       </Container>
-    </ThemeProvider>
+      </ThemeProvider>
   );
 }

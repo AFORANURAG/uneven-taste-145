@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import documents from "../../assets/images/icons8-archive-list-of-parts-32.png";
+
+import { v4 as uuidv4 } from 'uuid';
+
 
 import cash from "../../assets/images/icons8-cash-40.png";
 
@@ -45,7 +49,7 @@ const reviewsectionarray = [
   {
   name:"anurag",
   verified:"customer verified",
-  description:"ayuva has been very instrumental to the success of my business. We handle a large no of clients and this scheduling app has kept appointments flowing smoothly with minimal hiccups. I have referred many and will continue to refer people to use this app if they're in need to organize their appt scheduling."
+  description:"ayuva has been very instrumental . I have referred many and will continue to refer people to use this app if they're in need to organize their appt scheduling."
   }
   ,
   {
@@ -67,7 +71,7 @@ const reviewsectionarray = [
   {
   name:"Pratap",
   verified:"customer verified",
-  description:"Amazing. This tool is priced affordably and does it all. We look forward to growing our business using 10to8.com's easy integrations with popular payment processors and customer communications tools like SMS text and Mailchimp. The multi-calendar scheduling and service type customizations are powerful tools that they make better all the time. Highly recommend this application for service-based companies."
+  description:"Amazing. This tool is priced affordably and The multi-calendar scheduling and ."
   }
   ,
   
@@ -118,9 +122,20 @@ const doctorsarray = [
 
 
 export default function Lowerbody() {
+  const [width,setWidth]=useState(window.innerWidth)
+  console.log(width)
+useEffect(()=>{
+   window.addEventListener("resize",()=>setWidth(window.innerWidth))
+
+return ()=>{
+  window.removeEventListener("resize",()=>setWidth(window.innerWidth))
+}
+},[])
+
   return (
     <div className='lowerbody' style={{textAlign:"center"}}>
     <div >
+    <>{width}</>
     <h1 style={{ fontFamily: "Noto Serif", fontSize: "35px", color: "black" }}>
     Ayu Health Mobile App
     </h1>
@@ -175,8 +190,12 @@ export default function Lowerbody() {
 
 <Divider sx={{fontSize:"25px",marginBottom:"50px"}}>Review Section</Divider>
 <div className='reviewssection'>
+
+
+
+{width>=900?<>
 <Splide  options={{
-  perPage: 3,
+  perPage:3,
   rewind: true,
   pagination: true,
   arrows: true,
@@ -186,8 +205,8 @@ export default function Lowerbody() {
 
 {reviewsectionarray.map((el)=>{
   return (
-      <SplideSlide>
-      <Review {...el}/>
+      <SplideSlide key={uuidv4()} >
+      <Review {...el} />
       </SplideSlide>
 )
 })}
@@ -195,6 +214,35 @@ export default function Lowerbody() {
 <Chakrabutton ml={"50%"} mr={"50%"} mt={"50px"} mb={"50px"} _hover={{backgroundColor:"black",color:"white"}} variant={"outline"} >
 View all
 </Chakrabutton>  
+
+
+</>:
+<>
+{console.log(width)
+}
+<Splide  options={{
+  perPage:2,
+  rewind: true,
+  pagination: true,
+  arrows: true,
+  autoplay: true,
+  interval: 3000
+}}>
+
+{reviewsectionarray.map((el)=>{
+  return (
+      <SplideSlide key={uuidv4()} >
+      <Review {...el} />
+      </SplideSlide>
+)
+})}
+</Splide> 
+<Chakrabutton ml={"50%"} mr={"50%"} mt={"50px"} mb={"50px"} _hover={{backgroundColor:"black",color:"white"}} variant={"outline"} >
+View all
+</Chakrabutton>  
+
+</>}
+
 </div>
 
 
@@ -210,7 +258,7 @@ View all
 
 {newsimages.map((el)=>{
   return (
-      <SplideSlide>
+      <SplideSlide key={uuidv4()}  >
 <div style={{marginLeft:"20px",width:"80%",boxShadow:"rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"}}>
 <img src={el.imageurl} alt="hello world"/>
 </div>
