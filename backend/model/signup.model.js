@@ -22,6 +22,10 @@ const Signup = sequelize.define('signup', {
         unique: true,
         allowNull: false
     },
+    role: {
+        type: Sequelize.ENUM('admin', 'doctor','patient'),
+        defaultValue: 'patient'
+      },
     password: {
         type: Sequelize.STRING,
         allowNull: false

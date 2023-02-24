@@ -1,9 +1,10 @@
 const express = require('express');
 const DoctorRouter = express.Router();
 const Doctor = require('../model/Doctor.model');
-
+const {verifyJWT}=require("../Middlewares/authentication.middelwere")
+const {authorize}=require("../Middlewares/RoleBasedAuthorisation")
 // Get all doctors
-DoctorRouter.get('/', async (req, res) => {
+DoctorRouter.get('/',verifyJWT,authorize(["admin","patient"]), async (req, res) => {
     try {
         const doctors = await Doctor.findAll();
         res.json(doctors);
@@ -12,9 +13,54 @@ DoctorRouter.get('/', async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+DoctorRouter.get('/Department/:id',verifyJWT, async (req, res) => {
+    console.log(req.params.id)
+    try {
+       newDoctor=await Doctor.findAll({
+            where: {
+                departmentId: req.params.id
+            }
+          })
+          .then((newDoctor) => {
+            res.json(newDoctor);
+
+            console.log(newDoctor);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+          
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+DoctorRouter.get('/:email',verifyJWT, async (req, res) => {
+    console.log(req.params.id)
+    try {
+       newDoctor=await Doctor.findAll({
+            where: {
+                email:req.params.email
+            }
+          })
+          .then((newDoctor) => {
+            res.json(newDoctor);
+
+            console.log(newDoctor);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+          
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
 
 // Get a specific doctor by ID
-DoctorRouter.get('/:id', async (req, res) => {
+DoctorRouter.get('/:id',verifyJWT, async (req, res) => {
     try {
         const doctor = await Doctor.findByPk(req.params.id);
         if (doctor) {
@@ -29,7 +75,7 @@ DoctorRouter.get('/:id', async (req, res) => {
 });
 
 // Create a new doctor
-DoctorRouter.post('/', async (req, res) => {
+DoctorRouter.post('/',verifyJWT, async (req, res) => {
     try {
         const doctor = await Doctor.create(req.body);
         res.status(201).json(doctor);
@@ -40,7 +86,7 @@ DoctorRouter.post('/', async (req, res) => {
 });
 
 
-DoctorRouter.put('/:id', async (req, res) => {
+DoctorRouter.put('/:id',verifyJWT, async (req, res) => {
     try {
         const doctor = await Doctor.findByPk(req.params.id);
         if (doctor) {
@@ -56,7 +102,7 @@ DoctorRouter.put('/:id', async (req, res) => {
 });
 
 // Delete a doctor by ID
-DoctorRouter.delete('/:id', async (req, res) => {
+DoctorRouter.delete('/:id',verifyJWT, async (req, res) => {
     try {
         const doctor = await Doctor.findByPk(req.params.id);
         if (doctor) {
