@@ -14,6 +14,7 @@ const verifyJWT = (req, res, next) => {
       return res.status(401).json({ message: 'Failed to authenticate token' });
     }
     req.user = decoded;
+    req.body.role=decoded.role
     next();
   });
 };

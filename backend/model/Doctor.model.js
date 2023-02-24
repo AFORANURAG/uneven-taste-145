@@ -15,6 +15,11 @@ const Doctor = sequelize.define('doctor', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+  },
   specialization: {
     type: Sequelize.STRING,
     allowNull: false

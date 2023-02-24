@@ -44,6 +44,10 @@ GET /doctor
 2)get all doctors by id
 GET /doctor/:id
 3)Create a new doctor
+4)Get By department id 
+GET doctor/Department/:id
+5)Get By Email
+ 
 POST /doctor
 
 body =

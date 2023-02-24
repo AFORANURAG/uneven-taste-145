@@ -5,13 +5,14 @@ const Appointment = require('../model/Appointment.model');
 const Doctor = require('../model/Doctor.model');
 const { Patient } = require("../model/Patient.model")
 
+const {verifyJWT}=require("../Middlewares/authentication.middelwere")
 
 
 Appointment.belongsTo(Doctor, { foreignKey: 'doctorId' });
 Appointment.belongsTo(Patient, { foreignKey: 'patientId' });
 
 // Get all appointments
-AppointmentRouter.get('/', async (req, res) => {
+AppointmentRouter.get('/',verifyJWT, async (req, res) => {
     try {
         const appointments = await Appointment.findAll({
 
@@ -25,7 +26,7 @@ AppointmentRouter.get('/', async (req, res) => {
 });
 
 // Get a single appointment by ID
-AppointmentRouter.get('/:id', async (req, res) => {
+AppointmentRouter.get('/:id',verifyJWT, async (req, res) => {
     try {
         const appointment = await Appointment.findByPk(req.params.id, {
             include: [{ model: Doctor }, { model: Patient }],
@@ -41,7 +42,7 @@ AppointmentRouter.get('/:id', async (req, res) => {
 });
 
 // Get appointments by doctor ID
-AppointmentRouter.get('/doctor/:id', async (req, res) => {
+AppointmentRouter.get('/doctor/:id',verifyJWT, async (req, res) => {
     const doctorId = req.params.id;
     try {
         const appointments = await Appointment.findAll({
@@ -56,7 +57,7 @@ AppointmentRouter.get('/doctor/:id', async (req, res) => {
 });
 
 // Get appointments by patient ID
-AppointmentRouter.get('/patient/:id', async (req, res) => {
+AppointmentRouter.get('/patient/:id',verifyJWT, async (req, res) => {
     const patientId = req.params.id;
     try {
         const appointments = await Appointment.findAll({
@@ -72,7 +73,7 @@ AppointmentRouter.get('/patient/:id', async (req, res) => {
 
 
 // Create a new appointment
-AppointmentRouter.post('/', async (req, res) => {
+AppointmentRouter.post('/',verifyJWT, async (req, res) => {
     const { dateTime, patientName, doctorId, patientId, note } = req.body;
     try {
         const appointment = await Appointment.create({
@@ -90,7 +91,7 @@ AppointmentRouter.post('/', async (req, res) => {
 });
 
 // Update an appointment
-AppointmentRouter.put('/:id', async (req, res) => {
+AppointmentRouter.put('/:id',verifyJWT, async (req, res) => {
     const { dateTime, patientName, doctorId, note } = req.body;
     try {
         const appointment = await Appointment.findByPk(req.params.id);
@@ -111,7 +112,7 @@ AppointmentRouter.put('/:id', async (req, res) => {
 });
 
 // Delete an appointment
-AppointmentRouter.delete('/:id', async (req, res) => {
+AppointmentRouter.delete('/:id',verifyJWT, async (req, res) => {
     try {
         const appointment = await Appointment.findByPk(req.params.id);
         if (!appointment) {

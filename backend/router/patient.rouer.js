@@ -1,9 +1,10 @@
 const express = require('express');
 const PatientRouter = express.Router();
 const { Patient } = require('../model/Patient.model');
+const {verifyJWT}=require("../Middlewares/authentication.middelwere")
 
 // GET all patients
-PatientRouter.get('/', async (req, res) => {
+PatientRouter.get('/',verifyJWT, async (req, res) => {
     try {
         const patients = await Patient.findAll();
         res.json(patients);
@@ -12,9 +13,31 @@ PatientRouter.get('/', async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
+PatientRouter.get('/:email',verifyJWT, async (req, res) => {
+    console.log(req.params.id)
+    try {
+        PatientNew=await Patient.findAll({
+            where: {
+                email:req.params.email
+            }
+          })
+          .then((PatientNew) => {
+            res.json(PatientNew);
+
+            // console.log(newDoctor);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+          
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
 
 // GET a single patient by ID
-PatientRouter.get('/:id', async (req, res) => {
+PatientRouter.get('/:id',verifyJWT, async (req, res) => {
     try {
         const patient = await Patient.findByPk(req.params.id);
         if (patient) {
@@ -29,7 +52,7 @@ PatientRouter.get('/:id', async (req, res) => {
 });
 
 // POST a new patient
-PatientRouter.post('/', async (req, res) => {
+PatientRouter.post('/',verifyJWT, async (req, res) => {
     const { name, email, phone, dob } = req.body;
     try {
         const patient = await Patient.create({
@@ -46,7 +69,7 @@ PatientRouter.post('/', async (req, res) => {
 });
 
 // PUT update an existing patient
-PatientRouter.put('/:id', async (req, res) => {
+PatientRouter.put('/:id',verifyJWT, async (req, res) => {
     const { name, email, phone, dob } = req.body;
     try {
         const patient = await Patient.findByPk(req.params.id);
@@ -68,7 +91,7 @@ PatientRouter.put('/:id', async (req, res) => {
 });
 
 // DELETE a patient by ID
-PatientRouter.delete('/:id', async (req, res) => {
+PatientRouter.delete('/:id',verifyJWT, async (req, res) => {
     try {
         const patient = await Patient.findByPk(req.params.id);
         if (patient) {

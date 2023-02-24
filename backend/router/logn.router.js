@@ -29,7 +29,8 @@ LoginRouter.post('/', (req, res) => {
                     // create JWT token here
                     const payload = {
                         id: user.id,
-                        email: user.email
+                        email: user.email,
+                        role:user.role
                     };
 
                     const secret = process.env.JWT_SECRET;
