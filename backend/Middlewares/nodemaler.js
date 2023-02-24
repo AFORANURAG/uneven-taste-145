@@ -1,58 +1,52 @@
 
 const nodemailer = require('nodemailer');
-const { google } = require("googleapis")
-const CLIENT_ID = "45580238799-3hvqsnkni176cevg8prr9a40jr792rmt.apps.googleusercontent.com"
-const CLIENT_SECRET = "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";
-const REDIRECT_URL = "https://developers.google.com/oauthplayground";
-const REFRESH_TOKEN = "1//04uWrU2e5UGUOCgYIARAAGAQSNwF-L9IroVmF_DVaAAr23pgIiSTA9yIHvgpSdC0yzz5C4u1_1mLOGu2DxWExPnAfUV785HfLZXI";
 
 
+const otpgenerator=()=>{
+    let otp=Math.floor(Math.random()*9000+1000)
+    return otp
+      }
 
-const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL)
-
-oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN })
-
-
-async function sendMail() {
+async function sendEmail(otp,email){
     try {
-        const accessToken = await oAuth2Client.getAccessToken();
-        const transport = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                type: 'OAuth2',
-                user: 'manekishor0612@gmail.com',
-                clientId: CLIENT_ID,
-                clientSecret: CLIENT_SECRET,
-                refreshToken: REFRESH_TOKEN,
-                accessToken: accessToken
-
-            }
-        })
-
-        const mailOptions = {
-            from: "manekishor <manekishor0612@gmail.com>",
-            to:"manekishor212@gmail.com",
-            subject:"Hello from kishor nodemailer",
-            text:"hello ",
-            // html:"<h1>hello</h1>"
-        }
-
-
-
-        const result =await transport.sendMail(mailOptions);
-        return result
-
-    } catch (err) {
-        return err
+    
+    const transport=nodemailer.createTransport({
+    service:"gmail",
+    auth:{
+    type:"OAuth2",
+    user:"anuragupadhyay172912313@gmail.com",
+    accessToken:"ya29.a0AVvZVspOAhMenWW37HuBNxOgMkRCSFi2BAnfaJ7epKuASwdnnmN0XlhF8XKyfCAcZDkdWJ-IBaB6aEtC6h3qZ1HU-RYVfRdS5_RYBpbfWi2OieLvvo7PB3b3vcR84fEKM4XIE4RPqOCqVuj68cozj97pwlDuaCgYKAXMSARASFQGbdwaIXDo__cOcDhsnukmTHrdDdQ0163",
+    refreshToken: '1//04eybFMqLc9YVCgYIARAAGAQSNwF-L9IrNKjsQXervouD1mukcSB1n9SqR_s3ge0L68Gz-oh4HNv3qKh6g9gAlCYJ895iUfIbQkU',
+    clientId:"172721478034-tesnpt2cg096svdifscbo9vm953vac1s.apps.googleusercontent.com",
+    clientSecret:"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"
     }
-}
+    })
+
+    const mailOptions={
+        from:"anuragupadhyay172912313@gmail.com",
+        to:email,
+        subject:"this is a test email",
+        html:`<h1>here is your otp ${otp}</h1>`,
+        body:"this is your otp for signing up"+`${otp}`
+        }
+        
+        const result=await transport.sendMail(mailOptions)
+        return result;
+        
+        } catch (error) {
+        return error
+ }
+ }
+
+
+     
 
 
 
-
-
-sendMail()
-.then((result)=>console.log("email sent" , result))
-.catch((err)=>console.log(err.message))
-
+ sendEmail(908129038,"anuragupadhyay1723@gmail.com").then((result)=>{
+    console.log("email is sent ",result)
+    
+    }).catch((error)=>{
+        console.log(error)
+    })
 

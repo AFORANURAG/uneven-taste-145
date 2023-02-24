@@ -1,15 +1,18 @@
-import React from "react";
-import { TextField, Button } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { TextField, Button,Container } from "@mui/material";
 import { Center } from "@chakra-ui/react";
 import { Divider } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import {Button as Chakrabutton} from "@chakra-ui/react"
-import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import '@splidejs/splide/dist/css/splide.min.css';
+
 import Typography from '@mui/material/Typography';
 import MediaCard from "./Doctorcards"
 import { backOut } from "framer-motion";
 import { fontFamily } from "@mui/system";
+import { v4 as uuidv4 } from 'uuid';
+
 const informationdropperstyles = {
   textAlign: "center",
   boxShadow:
@@ -129,6 +132,13 @@ const procedures=[
 ]
 
 export default function Middleupperbody() {
+  const [width,setWidth]=useState(window.innerWidth)
+  useEffect(()=>{
+window.addEventListener("resize",()=>setWidth(window.innerWidth))
+return ()=>{
+  window.removeEventListener("resize",()=>setWidth(window.innerWidth))
+}
+  },[])
   return (
     <div className="middleupperbody">
       <div style={{ textAlign: "center" }}>
@@ -254,7 +264,7 @@ export default function Middleupperbody() {
       <div className="benefitscontainer">
         {benefitsdata.map((el, index) => {
           return (
-            <div className="benefit">
+            <div key={uuidv4()} className="benefit">
               <img src={el.img} alt="" />
               <p style={{ fontFamily: "Noto Serif", fontSize: "20px" }}>
                 {el.description}
@@ -271,7 +281,7 @@ export default function Middleupperbody() {
       <div className="workflowcontainer">
         {workflowarray.map((el, index) => {
           return (
-            <div className="benefit">
+            <div key={uuidv4()} className="benefit">
               <img src={el.img} alt="" />
               <p style={{ fontFamily: "Noto Serif", fontSize: "20px" }}>
                 {el.description}
@@ -295,30 +305,78 @@ export default function Middleupperbody() {
       </div>
 
       <div className="doctorcarousel">
-      <Splide  options={{
-        perPage: 3,
-        rewind: true,
-        pagination: true,
-        arrows: true,
-        autoplay: true,
-        interval: 3000
-      }}>
+      {width>=800?<>
+        <Splide  options={{
+          rewind: true,
+          perPage:3,
+          arrows: true,
+          autoplay: true,
+          interval: 3000,
+          breakpoints: {
+            580: {
+              perPage: 1,
+            },
+            1000: {
+              perPage: 2,
+            },
+            1500:{
+  perPage:3
+            },
+          },
+        }}>
+        
+        {doctorsarray.map((el)=>{
+          return (
+              <SplideSlide>
+             
+              <MediaCard key={uuidv4()} {...el} />
+  
+              </SplideSlide>
+          )
+        })}
+  
+        </Splide> 
+        <Chakrabutton ml={"50%"} mr={"50%"} _hover={{backgroundColor:"black",color:"white"}} variant={"outline"} >
+        View all
+        </Chakrabutton>      
+        
+        </>:<>
+        <Splide  options={{
+          rewind: true,
+          perPage:2,
+          arrows: true,
+          autoplay: true,
+          interval: 3000,
+          breakpoints: {
+            580: {
+              perPage: 1,
+            },
+            1000: {
+              perPage: 2,
+            },
+            1500:{
+  perPage:3
+            },
+          },
+        }}>
+        
+        {doctorsarray.map((el)=>{
+          return (
+              <SplideSlide>
+             
+              <MediaCard key={uuidv4()} {...el} />
+  
+              </SplideSlide>
+          )
+        })}
+  
+        </Splide> 
+        <Chakrabutton ml={"50%"} mr={"50%"} _hover={{backgroundColor:"black",color:"white"}} variant={"outline"} >
+        View all
+        </Chakrabutton>      
+        </>}
       
-      
-      {doctorsarray.map((el)=>{
-        return (
-            <SplideSlide>
-           
-            <MediaCard {...el} />
-
-            </SplideSlide>
-        )
-      })}
-
-      </Splide> 
-      <Chakrabutton ml={"50%"} mr={"50%"} _hover={{backgroundColor:"black",color:"white"}} variant={"outline"} >
-      View all
-      </Chakrabutton>      
+     
       </div>
 
 <div>
@@ -331,7 +389,7 @@ Looking for a procedure
 <div className="proceduresbutton">
 {procedures.map((el)=>{
     return (
-    <Button variant={"outlined"} color={"success"}  sx={{ml:"20px",mt:"20px",fontSize:"10px",borderRadius:"20px"}}>{el.procedure}</Button>
+    <Button key={uuidv4()} variant={"outlined"} color={"success"}  sx={{ml:"5%",mt:"20px",fontSize:"20px",borderRadius:"20px"}}>{el.procedure}</Button>
     )
 })}
 </div>

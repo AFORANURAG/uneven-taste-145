@@ -1,6 +1,9 @@
-import { Children, ReactNode } from 'react';
+import { Children, ReactNode, useEffect } from 'react';
 import Ayuva from "../../assets/images/Medical-Care.png"
 import {Link as Routerlink} from "react-router-dom"
+import { useContext } from 'react';
+import {Usercontext} from "../../contexts/Usercontext";
+
 import {
   Box,
   Flex,
@@ -23,6 +26,7 @@ import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 const Links = ["Book Appointment","Contact-us at:+917836068460"];
 
 const NavLink = ({ children }) => {
+  
   return( 
     <Routerlink
     px={5}
@@ -42,7 +46,20 @@ const NavLink = ({ children }) => {
 
 export default function withAction() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const {token,setToken,user,setUser,role,setRole}=useContext(Usercontext)
+console.log(token,role)
+  function logout(){
+  setToken("")
+  setRole("")
+  localStorage.removeItem("token")
+  localStorage.removeItem("role")
+}
+useEffect(()=>{
+let token=localStorage.getItem("token")
+let role=localStorage.getItem("role")
+setToken(token)
+setRole(role)
+},[])
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -59,6 +76,8 @@ export default function withAction() {
           <Box>
           <img style={{width:"25%"}} src={Ayuva} alt="" />
           </Box>
+
+
           </Routerlink>
          
             <HStack
@@ -74,7 +93,7 @@ export default function withAction() {
           </HStack>
 
           <Flex alignItems={'center'}>
-
+          {!token&&!role &&<>
           <Routerlink to={"/login"}>
           <Button
           variant={'solid'}
@@ -86,7 +105,7 @@ export default function withAction() {
         </Button>
           </Routerlink>  
           
-
+        
           <Routerlink to={"/signup"}>
           <Button
           variant={'solid'}
@@ -96,9 +115,25 @@ export default function withAction() {
           leftIcon={<AddIcon />}>
           Signup
         </Button>
-          </Routerlink> 
-
-          <Routerlink to={"/doctordashboard"}>
+          </Routerlink>
+        </>
+        }
+           
+{role&&token&&<>
+  <Button
+          variant={'solid'}
+          colorScheme={'teal'}
+          size={'sm'}
+          mr={4}
+          onClick={logout}
+          leftIcon={<AddIcon />} >
+          Logout
+        </Button>
+  
+  </>}
+          
+{token&&role=="Doctor"&&<>
+<Routerlink to={"/doctordashboard"}>
           <Button
           variant={'solid'}
           colorScheme={'teal'}
@@ -108,8 +143,10 @@ export default function withAction() {
           Doctor dashboard
         </Button>
           </Routerlink> 
-
-          <Routerlink to={"/userdashboard"}>
+</>}
+       
+{token&&role=="Patient"&&<>
+<Routerlink to={"/userdashboard"}>
           <Button
           variant={'solid'}
           colorScheme={'teal'}
@@ -120,7 +157,9 @@ export default function withAction() {
         </Button>
           </Routerlink> 
 
+</>}
 
+          
           </Flex>
         </Flex>
 
@@ -161,3 +200,5 @@ export default function withAction() {
 //                 <MenuItem>Link 3</MenuItem>
 //               </MenuList>
 //             </Menu>
+
+

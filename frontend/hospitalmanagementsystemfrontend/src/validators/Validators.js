@@ -1,21 +1,29 @@
-const validateEmail = (email) => {
-    return email.match(
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-  };
+function ValidateEmail(email) 
+{
+ 
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+  {
+    return true
+  }else{
+    
+return false
+  }
+}
 // must be of 8 length,one uppercase,one lowercase,one special character and one numeric
 //digit
-function CheckPassword(inputtxt) 
+function CheckPassword(password) 
 { 
-var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-if(inputtxt.value.match(decimal)) 
+
+  var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+  console.log(decimal)
+if(password.match(decimal)) 
 { 
-alert('Correct, try another...')
-return true;
+return true
+
 }
 else
 { 
-alert('Wrong...!')
-return false;
+return false
 }
 }
+export {ValidateEmail,CheckPassword}
