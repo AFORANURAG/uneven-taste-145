@@ -14,3 +14,6 @@ if(permitedrole.includes(role)){
 
 }
 module.exports = {authorize};
+
+
+// ,authorize(["admin","patient"])

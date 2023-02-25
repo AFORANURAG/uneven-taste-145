@@ -1,0 +1,58 @@
+
+.container-div{
+display: grid;
+/* justify-content: center; */
+
+}
+
+
+.appointment-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-content: space-between; 
+  width: 100%;
+}
+.main-heading{
+  margin: 30px;
+}
+
+.appointment-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .appointment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .appointment-header h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .appointment-header p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .appointment-details p {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .appointment-container{
+
+      grid-template-columns: repeat(1,1fr);
+    }
+}
+  

@@ -1,0 +1,45 @@
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-image {
+  margin-bottom: 20px;
+}
+
+.user-image img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-info h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.user-info p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .user-card {
+    flex-direction: row;
+  }
+  
+  .user-image {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+  
+  .user-info {
+    flex: 1;
+  }
+}
