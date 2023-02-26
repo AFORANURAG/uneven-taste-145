@@ -22,6 +22,14 @@ const Patient = sequelize.define('Patient', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  city: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  country: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   dob: {
     type: Sequelize.DATEONLY,
     allowNull: false,

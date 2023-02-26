@@ -74,13 +74,15 @@ AppointmentRouter.get('/patient/:id',verifyJWT, async (req, res) => {
 
 // Create a new appointment
 AppointmentRouter.post('/',verifyJWT, async (req, res) => {
-    const { dateTime, patientName, doctorId, patientId, note } = req.body;
+    const { dateTime, patientName, doctorId,PaymentStatus,doctorName, patientId, note } = req.body;
     try {
         const appointment = await Appointment.create({
             dateTime,
             patientName,
             doctorId,
             patientId,
+            doctorName,
+            PaymentStatus,
             note,
         });
         res.json(appointment);
@@ -92,7 +94,7 @@ AppointmentRouter.post('/',verifyJWT, async (req, res) => {
 
 // Update an appointment
 AppointmentRouter.put('/:id',verifyJWT, async (req, res) => {
-    const { dateTime, patientName, doctorId, note } = req.body;
+    const { dateTime, patientName, doctorId, note,PaymentStatus } = req.body;
     try {
         const appointment = await Appointment.findByPk(req.params.id);
         if (!appointment) {
@@ -102,6 +104,8 @@ AppointmentRouter.put('/:id',verifyJWT, async (req, res) => {
         appointment.patientName = patientName;
         appointment.doctorId = doctorId;
         appointment.patientId = patientId;
+        appointment.PaymentStatus=PaymentStatus;
+        appointment.doctorName=doctorName
         appointment.note = note;
         await appointment.save();
         res.json(appointment);
@@ -127,3 +131,6 @@ AppointmentRouter.delete('/:id',verifyJWT, async (req, res) => {
 });
 
 module.exports = { AppointmentRouter };
+
+
+

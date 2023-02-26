@@ -18,8 +18,16 @@ const Appointment = sequelize.define('Appointment', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  PaymentStatus: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   doctorId: {
     type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  doctorName: {
+    type: Sequelize.STRING,
     allowNull: false,
   },
   patientId: {
@@ -31,9 +39,4 @@ const Appointment = sequelize.define('Appointment', {
     allowNull: true,
   },
 });
-
-
-
-
-
 module.exports = Appointment;

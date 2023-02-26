@@ -53,13 +53,15 @@ PatientRouter.get('/:id',verifyJWT, async (req, res) => {
 
 // POST a new patient
 PatientRouter.post('/',verifyJWT, async (req, res) => {
-    const { name, email, phone, dob } = req.body;
+    const { name, email, phone, dob , city, country } = req.body;
     try {
         const patient = await Patient.create({
             name,
             email,
             phone,
             dob,
+            city,
+            country
         });
         res.json(patient);
     } catch (err) {
@@ -70,7 +72,7 @@ PatientRouter.post('/',verifyJWT, async (req, res) => {
 
 // PUT update an existing patient
 PatientRouter.put('/:id',verifyJWT, async (req, res) => {
-    const { name, email, phone, dob } = req.body;
+    const { name, email, phone, dob,city, country } = req.body;
     try {
         const patient = await Patient.findByPk(req.params.id);
         if (patient) {
@@ -79,6 +81,8 @@ PatientRouter.put('/:id',verifyJWT, async (req, res) => {
                 email,
                 phone,
                 dob,
+                city,
+                country
             });
             res.json(patient);
         } else {

@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from "react";
+import React, { useState } from "react";
 import DoctorCard from './components/doctoreprofilecomp';
 import AppointmentCard from './components/appointmentshowforDoctor';
 import Navbar from './components/nav';
@@ -9,6 +9,26 @@ import Navbar from './components/nav';
 import './css/nav.css';
 import Allapointment from './components/allapointment';
 function App() {
+  const [email,setEmail]=React.usestate("")
+  const [data,setData]=React.useState([])
+  const getData = async () => {
+    try {
+      const res = await fetch(`http://localhost:8080/Appointment/doctor/${email}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem(token)}`
+        }
+      });
+      const newActualData = await res.json();
+      setData(newActualData);
+      console.log(newActualData)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, [email]);
 
 
 

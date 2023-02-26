@@ -31,6 +31,7 @@ SignupRouter.post('/', async (req, res) => {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 email: req.body.email,
+               
                 password: hash
             })
                 .then(signup => {
