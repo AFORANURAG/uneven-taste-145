@@ -37,9 +37,9 @@ PatientRouter.get('/:email',verifyJWT, async (req, res) => {
 });
 
 // GET a single patient by ID
-PatientRouter.get('/:id',verifyJWT, async (req, res) => {
+PatientRouter.get('/:patientId',verifyJWT, async (req, res) => {
     try {
-        const patient = await Patient.findByPk(req.params.id);
+        const patient = await Patient.findByPk(req.params.patientId);
         if (patient) {
             res.json(patient);
         } else {
