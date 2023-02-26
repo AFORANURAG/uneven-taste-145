@@ -13,6 +13,7 @@ DoctorRouter.get('/',verifyJWT, async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+
 DoctorRouter.get('/Department/:id',verifyJWT, async (req, res) => {
     console.log(req.params.id)
     try {

@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState } from "react";
+import { useState } from "react";
 import DoctorCard from './components/doctoreprofilecomp';
 import AppointmentCard from './components/appointmentshowforDoctor';
 import Navbar from './components/nav';
@@ -9,26 +9,6 @@ import Navbar from './components/nav';
 import './css/nav.css';
 import Allapointment from './components/allapointment';
 function App() {
-  const [email,setEmail]=React.usestate("")
-  const [data,setData]=React.useState([])
-  const getData = async () => {
-    try {
-      const res = await fetch(`http://localhost:8080/Appointment/doctor/${email}`, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem(token)}`
-        }
-      });
-      const newActualData = await res.json();
-      setData(newActualData);
-      console.log(newActualData)
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, [email]);
 
 
 
@@ -36,7 +16,7 @@ function App() {
     <div className="app">
       <Navbar />
       <DoctorCard
-        name="Dr. John Doe"
+        name="Dr. Ramesh Gupta"
         specialization="Cardiologist"
         availability="Available Monday to Friday"
         qualifications="MBBS, MD"
@@ -45,7 +25,7 @@ function App() {
         rating={4.5}
       />
 
-      <Allapointment id={1} token={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYW5la2lzaG9yMDYxMkBnbWFpbC5jb20iLCJyb2xlIjoicGF0aWVudCIsImlhdCI6MTY3NzIzMzg1OSwiZXhwIjoxNjc3MzIwMjU5fQ.FuSqZwJKPlkhVQekcbQJhE9dPvS7N-bQAgv62w-hYuY"} />
+      <Allapointment id={1} token={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYW5la2lzaG9yMDYxMkBnbWFpbC5jb20iLCJyb2xlIjoicGF0aWVudCIsImlhdCI6MTY3NzQyMjA1MSwiZXhwIjoxNjc3NTA4NDUxfQ.c4ErvD0cI7UIbI3_78uRTz58pyVlHrREHTM-bFb3S9A"} />
       <div className='AppointmentCard-container'>
 
       </div>
