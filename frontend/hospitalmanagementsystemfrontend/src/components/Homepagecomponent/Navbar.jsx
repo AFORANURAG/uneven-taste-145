@@ -119,8 +119,8 @@ setRole(role);
               display={{ base: 'none', md: 'flex' }}>
               
              
-                <NavLink1 key={"45353"} path={`http://localhost:3000/?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Book Appointment</NavLink1>
-                <NavLink key={"789798"} path={`http://localhost:3000/?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Contact-us at:+917836068460</NavLink>
+                <NavLink1 key={"45353"} path={`https://userdashboard-mauve.vercel.app//?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Book Appointment</NavLink1>
+                <NavLink key={"789798"} path={`https://userdashboard-mauve.vercel.app//?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Contact-us at:+917836068460</NavLink>
 
 
             </HStack>
@@ -183,7 +183,7 @@ setRole(role);
 </>}
        
 {token&&role=="Patient"&&<>
-<Link href={`http://localhost:3000/?name=${name}&&token=${token}&&lastName=${lastname}&&email=${email}`}>
+<Link href={`https://userdashboard-mauve.vercel.app/?name=${name}&&token=${token}&&lastName=${lastname}&&email=${email}`}>
           <Button
           variant={'solid'}
           colorScheme={'teal'}
@@ -203,8 +203,8 @@ setRole(role);
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-<NavLink key={"45353"} path={"http://localhost:3000/"}>Book Appointment</NavLink>
-<NavLink key={"789798"} path={"http://localhost:3000/"}>Contact-us at:+917836068460</NavLink>
+<NavLink key={"45353"} path={`https://userdashboard-mauve.vercel.app//?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Book Appointment</NavLink>
+<NavLink key={"789798"} path={`https://userdashboard-mauve.vercel.app//?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Contact-us at:+917836068460</NavLink>
             </Stack>
           </Box>
         ) : null}
