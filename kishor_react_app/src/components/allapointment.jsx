@@ -19,7 +19,6 @@ function Allapointment(props) {
       console.log(err);
     }
   };
-
   useEffect(() => {
     getData();
   }, [id, token]);
@@ -27,13 +26,13 @@ function Allapointment(props) {
   return (
     <div className='container-div'>
      <h1 className='main-heading'>Upcoming Appointment</h1>
-    <div className='appointment-container'>
+     <div className='appointment-container'>
+     {Data?.map((el) => (<AppointmentCard dateTime={el.dateTime} patientName={el.patientName} note={el.note} id={el.AppointmentId} />))}
+   </div>
      
-      {Data.map((el) => (<AppointmentCard dateTime={el.dateTime} patientName={el.patientName} note={el.note} id={el.AppointmentId} />))}
-
-    </div>
-    </div>
-  );
+     </div>
+     );
 }
 
 export default Allapointment;
+

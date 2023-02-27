@@ -8,12 +8,22 @@ import "../styles.css";
 import DoneIcon from "../../assets/icons/done.svg";
 import CancelIcon from "../../assets/icons/cancel.svg";
 import RefundedIcon from "../../assets/icons/refunded.svg";
+import axios from "axios"
 
 function Orders() {
   const [search, setSearch] = useState("");
   const [orders, setOrders] = useState(all_orders);
   const [page, setPage] = useState(1);
   const [pagination, setPagination] = useState([]);
+
+
+useEffect(()=>{
+
+})
+function getallorders(){
+  
+}
+
 
   useEffect(() => {
     setPagination(calculateRange(all_orders, 5));
@@ -127,7 +137,6 @@ function Orders() {
             </tbody>
           ) : null}
         </table>
-
         {orders.length !== 0 ? (
           <div className="dashboard-content-footer">
             {pagination.map((item, index) => (

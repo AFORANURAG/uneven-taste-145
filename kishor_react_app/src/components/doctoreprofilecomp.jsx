@@ -2,12 +2,12 @@ import React from 'react';
 import '../css/DoctorCard.css';
 
 const DoctorCard = (user) => {
-    const { name, specialization, availability, qualifications, experience, rating, image } = user;
+    const { name, specialization, availability, qualifications, experience, rating, img } = user;
 
     return (
       <div className="user-card">
         <div className="user-image">
-          <img src={image} alt={name} />
+          <img src={img} alt={name} />
         </div>
         <div className="user-info">
           <h2>{name}</h2>
