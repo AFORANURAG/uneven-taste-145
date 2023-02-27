@@ -1,6 +1,6 @@
 
 import { useContext } from 'react';
-
+import React from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -30,6 +30,8 @@ import {
   import backendurl from "../backendurl/index"
   import {ValidateEmail,CheckPassword} from "../validators/Validators"
   import {Usercontext} from "../contexts/Usercontext";
+  import {Modalbox} from './Modal';
+  import {modalcontext} from  "../contexts/modalcontext"
 import axios from 'axios';
 
 
@@ -38,7 +40,9 @@ export default function Login() {
 
 const navigate = useNavigate();
 const { isOpen, onOpen, onClose } = useDisclosure()
-const {token,setToken,user,setUser,role,setRole}=useContext(Usercontext)
+const {show,setShow,handleClose,handleShow}=React.useContext(modalcontext);
+
+const {token,setToken,user,setUser,role,setRole,name,setName}=useContext(Usercontext)
 // console.log(user,token);
 console.log(role)
 function login(){
@@ -52,13 +56,20 @@ function login(){
     console.log(response.data)
     localStorage.setItem("token",response.data.token)
     localStorage.setItem("role",role)
+    localStorage.setItem("name",response.data.name)
+    //email:user.email,last_name:user.last_name 
+    localStorage.setItem("lastname",response.data.last_name)
+    localStorage.setItem("email",response.data.email)
   setToken(response.data.token)
       onOpen()
     }).then((data)=>console.log(data))
     .catch(function (error) {
-
+      handleShow()
       console.log(error);
     });
+  }else{
+    
+    handleShow()
   }
  
 }
@@ -125,7 +136,9 @@ function handleclose(){
             }
           />
         </Flex>
-        
+        <>
+        <Modalbox/>
+        </>
         <>
         <>
         <Modal isOpen={isOpen} onClose={onClose}>

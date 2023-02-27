@@ -21,12 +21,71 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { FormControl, FormLabel, Grid, Input, Select } from '@chakra-ui/react'
+import { useEffect } from "react";
+import axios from "axios";
 const Account = () => {
-    const [userProfile, setUserProfile] = useState(null)
+const [userProfile, setUserProfile] = useState(null)
+const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const profileImage = useRef(null)
+const [patientId,setPatientId]=useState()
 
+const [name,setName]=useState(()=>{
+  let name=localStorage.getItem("name")
+  if(name){
+    return name
+  }
+});
+const [email,setEmail]=useState(()=>{
+  let email=localStorage.getItem("email")
+  if(email){
+    return email
+  }
+});
+const [lastName,setlastname]=useState(()=>{
+  let lastName=localStorage.getItem("lastname")
+  if(lastName){
+    return lastName
+  }
+});
+
+const [token,setToken]=useState(()=>{
+  let token=localStorage.getItem("token")
+  if(token){
+    return token
+  }
+});
+
+
+const [city,setCity]=useState();
+const [country,setCountry]=useState();
+const [phoneNumber,setPhonenumber]=useState();
+console.log(token)
+function createpatient(){
+console.log("create patient is clicked")
+//     const { name, email, phone, dob , city, country } = req.body;
+console.log(token)
+axios.post("http://localhost:8080/patient",{
+  body:{
+name,
+email,
+phone:phoneNumber,
+city,
+country
+  },
+  headers:{
+    "Content-Type":"application/json",
+  "Authorization":"Bearer "+token
+}
+}).then((res)=>{
+ alert("successfully registered as patient")
+  console.log(res)
+  setPatientId(res.data.patientId)
+  localStorage.setItem("patient", res.data.patientId)
+}).catch((err)=>{
+  console.log(err)
+})
+}
+const profileImage = useRef(null)
   const openChooseImage = () => {
     profileImage.current.click()
   }
@@ -53,7 +112,7 @@ const Account = () => {
         <VStack spacing={3} py={5} borderBottomWidth={1} borderColor="brand.light">
       <Avatar
         size="2xl"
-        name="Yogendra Singh"
+        name={name}
         cursor="pointer"
         onClick={openChooseImage}
         src={userProfile ? userProfile : '/img/tim-cook.jpg'}
@@ -98,11 +157,11 @@ const Account = () => {
       </Modal>
       <VStack spacing={1}>
         <Heading as="h3" fontSize="xl" color="brand.dark">
-          Yogendra Singh
+          
         </Heading>
-        <Text color="grey" fontSize="18px" fontWeight="bold" margin="20">
-          Bhilwara, Rajasthan
-        </Text>
+      
+
+
         {/* <Text color="gray" fontSize="16px" fontWeight="bold">
           Mobile:- 6375422034
         </Text> */}
@@ -119,18 +178,20 @@ const Account = () => {
     >
       <FormControl id="firstName">
         <FormLabel>First Name</FormLabel>
-        <Input focusBorderColor="brand.blue" type="text" placeholder="Yogendra" />
+        <Input focusBorderColor="brand.blue" type="text" value={name} placeholder="" />
       </FormControl>
       <FormControl id="lastName">
         <FormLabel>Last Name</FormLabel>
-        <Input focusBorderColor="brand.blue" type="text" placeholder="Singh" />
+        <Input focusBorderColor="brand.blue" type="text" placeholder="" value={lastName} />
       </FormControl>
       <FormControl id="phoneNumber">
         <FormLabel>Phone Number</FormLabel>
         <Input
           focusBorderColor="brand.blue"
           type="tel"
-          placeholder="6374422034"
+          placeholder="+91xxxxxxxxxx"
+          value={phoneNumber}
+          onChange={e => setPhonenumber(e.target.value)}
         />
       </FormControl>
       <FormControl id="emailAddress">
@@ -138,12 +199,13 @@ const Account = () => {
         <Input
           focusBorderColor="brand.blue"
           type="email"
+          value={email}
           placeholder="admin@gmail.com"
         />
       </FormControl>
       <FormControl id="city">
         <FormLabel>City</FormLabel>
-        <Select focusBorderColor="brand.blue" placeholder="Select city">
+        <Select focusBorderColor="brand.blue" placeholder="Select city" value={city} onChange={(e)=>{setCity(e.target.value)}}>
           <option value="Mumbai">Mumbai</option>
           <option value="Dehli">Delhi</option>
           <option value="Banglore">Banglore</option>
@@ -157,7 +219,7 @@ const Account = () => {
       </FormControl>
       <FormControl id="country">
         <FormLabel>Country</FormLabel>
-        <Select focusBorderColor="brand.blue" placeholder="Select country">
+        <Select focusBorderColor="brand.blue" value={country} onChange={(e)=>{setCountry(e.target.value)}} placeholder="Select country">
           <option value="america" selected>
             India
           </option>
@@ -168,7 +230,7 @@ const Account = () => {
     </Grid>
     <hr className="bottom-hr"
     />
-    <button className="update-profile">Update</button>
+    <button className="update-profile" onClick={createpatient}>Update</button>
         </div>
       </div>
     </div>
@@ -176,3 +238,8 @@ const Account = () => {
 };
 
 export default Account;
+
+
+// <Text color="grey" fontSize="18px" fontWeight="bold" margin="20">
+// Bhilwara, Rajasthan
+// </Text>

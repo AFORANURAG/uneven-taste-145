@@ -73,8 +73,13 @@ AppointmentRouter.get('/patient/:id',verifyJWT, async (req, res) => {
 
 
 // Create a new appointment
-AppointmentRouter.post('/',verifyJWT, async (req, res) => {
-    const { dateTime, patientName, doctorId,PaymentStatus,doctorName, patientId, note } = req.body;
+AppointmentRouter.post('/', async (req, res) => {
+ console.log(req.body)
+    const { dateTime, patientName, doctorId,PaymentStatus,doctorName, patientId, note } = req.body.data;
+    Doctor.update(
+        { availability:false },
+        { where: { doctorId:doctorId } }
+      )
     try {
         const appointment = await Appointment.create({
             dateTime,
@@ -85,7 +90,8 @@ AppointmentRouter.post('/',verifyJWT, async (req, res) => {
             PaymentStatus,
             note,
         });
-        res.json(appointment);
+        
+        res.json({message:"saved successfully",appointment});
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');

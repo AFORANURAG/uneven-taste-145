@@ -38,11 +38,6 @@ async function sendEmail(otp,email){
  }
  }
 
-
-     
-
-
-
  sendEmail(908129038,"anuragupadhyay1723@gmail.com").then((result)=>{
     console.log("email is sent ",result)
     

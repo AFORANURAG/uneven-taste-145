@@ -1,14 +1,22 @@
 import React from 'react'
 import DashboardHeader from '../../components/DashboardHeader'
+import {useNavigate} from "react-router-dom"
 import "../styles.css";
 import {CalendarIcon,} from '@chakra-ui/icons'
 import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+
 const Dashboard = () => {
+ const navigate=useNavigate();
+
+ function sendToDepartments(){
+  console.log("working fine")
+  navigate("/departments")
+}
   const percentage = 66;
   return (
     <div class="dashboard-content">
-        <DashboardHeader btnText="Book Appointment"/>
+        <DashboardHeader onClick={sendToDepartments} btnText="Book Appointment"/>
        <div className='dash-data'>
           <div className='data-card'>
             <h3>Total AppointMents</h3>

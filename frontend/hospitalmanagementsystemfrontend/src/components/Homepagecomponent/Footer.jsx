@@ -1,151 +1,89 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, IconButton, Typography } from '@material-ui/core';
-import { Instagram, YouTube, LinkedIn } from '@material-ui/icons';
+import { Flex, Box, Text, Link, Stack, IconButton, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
-
-
-const useStyles = makeStyles((theme) => ({
-  footer: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    padding: theme.spacing(6, 0),
-    backgroundImage:" linear-gradient(to right bottom, rgb(61, 194, 218), rgb(250, 172, 64));"
-  },
-  socialIcons: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: theme.spacing(4),
-  },
-  iconButton: {
-    margin: theme.spacing(0, 2),
-    color: theme.palette.primary.contrastText,
-    '&:hover': {
-      backgroundColor: 'transparent',
-      color: theme.palette.secondary.main,
-    },
-  },
-  companyName: {
-    marginTop: theme.spacing(4),
-    color: theme.palette.primary.contrastText,
-  },
-  cityList: {
-    marginTop: theme.spacing(2),
-    color: theme.palette.primary.contrastText,
-  },
-  sectionHeader: {
-    color: theme.palette.secondary.main,
-    marginBottom: theme.spacing(2),
-  },
-  contactList: {
-    listStyle: 'none',
-    padding: 0,
-    marginTop: theme.spacing(2),
-    color: theme.palette.primary.contrastText,
-  },
-  listItem: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: theme.spacing(1),
-  },
-  icon: {
-    marginRight: theme.spacing(2),
-    color: theme.palette.secondary.main,
-  },
-  divider: {
-    backgroundColor: theme.palette.primary.contrastText,
-    height: 2,
-    width: '100%',
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(4),
-  },
-  copyRight: {
-    marginTop: theme.spacing(4),
-    color: theme.palette.primary.contrastText,
-    textAlign: 'center',
-  },
-}));
-
-const Footer = () => {
-  const classes = useStyles();
+function Footer() {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const bg = useColorModeValue('white', 'gray.900');
+  const color = useColorModeValue('white', 'white');
 
   return (
-    <footer className={classes.footer}>
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={4}>
-            <Typography variant="h6">Follow Us</Typography>
-            <div className={classes.socialIcons}>
-              <IconButton
-                className={classes.iconButton}
-                href="https://www.instagram.com/ayuva"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Instagram />
-              </IconButton>
-              <IconButton
-                className={classes.iconButton}
-                href="https://www.youtube.com/ayuva"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <YouTube />
-              </IconButton>
-              <IconButton
-                className={classes.iconButton}
-                href="https://www.linkedin.com/company/ayuva"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkedIn />
-              </IconButton>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Typography variant="h6">We are building India's most trusted online hospital appointment ecosystem</Typography>
-            <Typography variant="body1" className={classes.cityList}>
-              We are present in Delhi, Mumbai, and Bangalore.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Typography variant="h6">Company Name</Typography>
-            <Typography variant="body1" className={classes.companyName}>
-              Ayuva
+    <Flex
+      as="footer"
+      bg={bg}
+      color={color}
+      py="8"
+      px={{ base: '4', md: '8' }}
+      flexWrap={{ base: 'wrap', lg: 'nowrap' }}
+      justifyContent="space-between"
+      alignItems={{ base: 'center', lg: 'flex-start' }}
+      fontSize="sm"
+      backgroundImage={"linear-gradient(to right bottom, rgb(61, 194, 218), rgb(250, 172, 64))"}
+    >
+      <Box flex="1">
+        <Text fontSize="2xl" fontWeight="bold" mb="4">
+          Ayuva
+        </Text>
+        <Text lineHeight="tall">
+          Address: 123 Main St, Anytown, USA
+          <br />
+          Phone: 555-123-4567
+          <br />
+          Email: info@ayuva.com
+          <br />
+          Locations: Delhi, Bangalore, Pune, Gurugram
+        </Text>
+        <Stack mt="4" direction="row" spacing="4">
+          <Link href="#" target="_blank" rel="noopener noreferrer">
+            <IconButton
+              aria-label="Facebook"
+              icon={<FaFacebook />}
+              size="md"
+              variant="ghost"
+              colorScheme="facebook"
+            />
+          </Link>
+          <Link href="#" target="_blank" rel="noopener noreferrer">
+            <IconButton
+              aria-label="Twitter"
+              icon={<FaTwitter />}
+              size="md"
+              variant="ghost"
+              colorScheme="twitter"
+            />
+          </Link>
+          <Link href="#" target="_blank" rel="noopener noreferrer">
+            <IconButton
+              aria-label="Instagram"
+              icon={<FaInstagram />}
+              size="md"
+              variant="ghost"
+              colorScheme="pink"
+            />
+          </Link>
+        </Stack>
+      </Box>
+      <Box mt={{ base: '8', lg: '0' }}>
+        <Text fontSize="md" mb="2" fontWeight="semibold">
+          Links
+        </Text>
+        <Stack direction={{ base: 'column', md: 'row' }} spacing={{ base: '2', md: '8' }}>
+          <Link href="#">Home</Link>
+          <Link href="#">About Us</Link>
+          <Link href="#">Services</Link>
+          <Link href="#">Contact Us</Link>
+        </Stack>
+      </Box>
+      <IconButton
+        aria-label="Toggle Color Mode"
+        icon={colorMode === 'dark' ? 'sun' : 'moon'}
+        size="md"
+        fontSize="2xl"
+        variant="ghost"
+        onClick={toggleColorMode}
+        ml="4"
+      />
+    </Flex>
+  );
+}
 
-              Health Care Pvt. Ltd.
-              </Typography>
-              <Typography variant="h6" className={classes.sectionHeader}>
-                Contact Us
-              </Typography>
-              <ul className={classes.contactList}>
-                <li className={classes.listItem}>
-                  <Typography variant="body1">
-                    <i className={`fas fa-map-marker-alt ${classes.icon}`} />
-                    Address: 123 Main Street, New Delhi, India
-                  </Typography>
-                </li>
-                <li className={classes.listItem}>
-                  <Typography variant="body1">
-                    <i className={`fas fa-envelope ${classes.icon}`} />
-                    Email: info@ayuva.com
-                  </Typography>
-                </li>
-                <li className={classes.listItem}>
-                  <Typography variant="body1">
-                    <i className={`fas fa-phone ${classes.icon}`} />
-                    Phone: +91 1234567890
-                  </Typography>
-                </li>
-              </ul>
-            </Grid>
-          </Grid>
-          <div className={classes.divider} />
-          <Typography variant="body2" className={classes.copyRight}>
-            &copy; 2023 Ayuva Health Care Pvt. Ltd. All rights reserved.
-          </Typography>
-        </Container>
-      </footer>
-  )}
-  export default Footer;
+export {Footer};
