@@ -15,12 +15,18 @@ import Navbar from "./components/Homepagecomponent/Navbar"
 import Doctor from "./components/Doctor"
 import {Modalcontextprovider} from "./contexts/modalcontext";
 import Userdashboard from "./components/Userdashboard";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ChakraProvider } from '@chakra-ui/react'
+
+const theme = createTheme();
 // Pass="mL5rTrVzs7"
 // JWT_SECRET=AYKProject
 // JWT_REFRESH_SECRET=AYKProject
 function App() {
   return (
     <Box>
+    <ThemeProvider theme={theme}>
+    <ChakraProvider>
     <Usercontextprovider>
     <Modalcontextprovider>
     <Navbar/>  
@@ -35,7 +41,9 @@ function App() {
 
 </Routes>
 </Modalcontextprovider>
-</Usercontextprovider>  
+</Usercontextprovider> 
+</ChakraProvider>
+</ThemeProvider> 
 </Box>
   )
 }

@@ -1,5 +1,5 @@
 const { sequelize } = require("../config/db");
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 
 const Doctor = sequelize.define('doctor', {
   doctorId: {
@@ -43,6 +43,10 @@ const Doctor = sequelize.define('doctor', {
   rating: {
     type: Sequelize.FLOAT,
     allowNull: true
+  },
+  fees:{
+type:DataTypes.BIGINT,
+allowNull:false
   }
 });
 

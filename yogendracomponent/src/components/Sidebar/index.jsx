@@ -28,9 +28,12 @@ function SideBar ({ menu }) {
         <nav className='sidebar'>
             <div className='sidebar-container'>
                 <div className='sidebar-logo-container'>
-                    <img
-                        src={logo}
-                        alt="logo" />
+                <a href="http://localhost:5173">
+                <img
+                src={logo}
+                alt="logo" />
+                </a>
+                   
                 </div>
 
                 <div className='sidebar-container'>

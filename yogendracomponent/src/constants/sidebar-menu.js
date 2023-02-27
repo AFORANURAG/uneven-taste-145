@@ -23,6 +23,12 @@ const sidebar_menu = [
         path: '/profile',
         title: 'My account',
     }
+    , {
+        id: 4,
+        icon: UserIcon,
+        path: '/departments',
+        title: 'Departments',
+    }
 ]
 
 export default sidebar_menu;

@@ -25,30 +25,56 @@ import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 
 const Links = ["Book Appointment","Contact-us at:+917836068460"];
 
-const NavLink = ({ children }) => {
+const NavLink = ({ children,path }) => {
   
   return( 
-    <Routerlink
-    px={5}
-    py={5}
-    // mx={5}
+    <Link
+   marginLeft={[300]}
+    px={3}
+    py={3}
+    fontFamily= {"Noto-serif"}
+    mx={5}
     rounded={'md'}
     _hover={{
       textDecoration: 'none',
+      color:"grey",
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}
+href={path}
     >
    {children}
-  </Routerlink>
+  </Link>
   )
   };
 
+  const NavLink1 = ({ children,path }) => {
+  
+    return( 
+      <Link
+     marginLeft={["-300px","-200px"]}
+      px={3}
+      py={3}
+      fontFamily= {"Noto-serif"}
+      mx={5}
+      rounded={'md'}
+      _hover={{
+        textDecoration: 'none',
+        color:"grey",
+        bg: useColorModeValue('gray.200', 'gray.700'),
+      }}
+  href={path}
+      >
+     {children}
+    </Link>
+    )
+    };
+  
 export default function withAction() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const {token,setToken,user,setUser,role,setRole}=useContext(Usercontext)
-console.log(token,role)
-  function logout(){
+  const {token,setToken,user,setUser,role,setRole,name,setName,email,setEmail,lastname,setLastName}=useContext(Usercontext)
+console.log(token,role,name,lastname,email)
+ 
+function logout(){
   setToken("")
   setRole("")
   localStorage.removeItem("token")
@@ -57,9 +83,16 @@ console.log(token,role)
 useEffect(()=>{
 let token=localStorage.getItem("token")
 let role=localStorage.getItem("role")
-setToken(token)
-setRole(role)
-},[])
+let name=localStorage.getItem("name")
+let lastname=localStorage.getItem("lastname")
+let email=localStorage.getItem("email")
+setEmail(email);
+setLastName(lastname);
+setName(name);
+console.log(email,lastname)
+setToken(token);
+setRole(role);
+},[name])
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -74,7 +107,7 @@ setRole(role)
           <HStack spacing={8} alignItems={'center'}>
           <Routerlink to={"/"}>
           <Box>
-          <img style={{width:"25%"}} src={Ayuva} alt="" />
+          <img style={{width:"20%"}} src={Ayuva} alt="" />
           </Box>
 
 
@@ -85,9 +118,10 @@ setRole(role)
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
               
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+             
+                <NavLink1 key={"45353"} path={`http://localhost:3000/?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Book Appointment</NavLink1>
+                <NavLink key={"789798"} path={`http://localhost:3000/?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Contact-us at:+917836068460</NavLink>
+
 
             </HStack>
           </HStack>
@@ -120,6 +154,9 @@ setRole(role)
         }
            
 {role&&token&&<>
+  <NavLink key={"90890"} path={""}>
+  welcome, {name}
+  </NavLink>
   <Button
           variant={'solid'}
           colorScheme={'teal'}
@@ -129,7 +166,7 @@ setRole(role)
           leftIcon={<AddIcon />} >
           Logout
         </Button>
-  
+
   </>}
           
 {token&&role=="Doctor"&&<>
@@ -146,7 +183,7 @@ setRole(role)
 </>}
        
 {token&&role=="Patient"&&<>
-<Routerlink to={"/userdashboard"}>
+<Link href={`http://localhost:3000/?name=${name}&&token=${token}&&lastName=${lastname}&&email=${email}`}>
           <Button
           variant={'solid'}
           colorScheme={'teal'}
@@ -155,20 +192,19 @@ setRole(role)
           leftIcon={<AddIcon />}>
          User Dashboard
         </Button>
-          </Routerlink> 
+        </Link>
 
-</>}
+</>
+}
 
-          
-          </Flex>
+        </Flex>
         </Flex>
 
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+<NavLink key={"45353"} path={"http://localhost:3000/"}>Book Appointment</NavLink>
+<NavLink key={"789798"} path={"http://localhost:3000/"}>Contact-us at:+917836068460</NavLink>
             </Stack>
           </Box>
         ) : null}

@@ -85,14 +85,14 @@ if(ValidateEmail(emailofuser)&&CheckPassword(password)){
     last_name:userinfo.lastName,
     first_name:userinfo.firstName,
   }).then((res)=>{
-    console.log("sign up successfull",res.json())
+    console.log("sign up successfull")
+    setIsSubmitted(true);
+    navigate('/login');  
   })
   .catch((error)=>{
       console.log(error)
     })
-setIsSubmitted(true);
-onOpen()
-// navigate('/login');  
+
 }else{
 handleShow()
 }
@@ -162,15 +162,7 @@ console.log("working")
                 />
               </Grid>
             <Grid item xs={12} sm={6}>
-            <Input
-           onChange={(e)=>{setSelectedDate(e.target.value)}}
-            placeholder="Select Date and Time"
-            size="md"
-            type="datetime-local"
-            name="dob"
-          label="Select Date"
-          value={selectedDate}
-           />
+           
 
             </Grid>
             <Grid item xs={12}>
@@ -235,7 +227,7 @@ console.log("working")
      <Modal isOpen={isOpen && isSubmitted} onClose={onClose}>
        <ModalOverlay />
        <ModalContent>
-         <ModalHeader>Modal Title</ModalHeader>
+         <ModalHeader>Signedup successfully</ModalHeader>
          <ModalCloseButton />
          <ModalBody>
            Sign up sucessfull!, you will be redirected to login page
