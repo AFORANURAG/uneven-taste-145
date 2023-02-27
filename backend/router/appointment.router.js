@@ -42,7 +42,7 @@ AppointmentRouter.get('/:id',verifyJWT, async (req, res) => {
 });
 
 // Get appointments by doctor ID
-AppointmentRouter.get('/doctor/:id',verifyJWT, async (req, res) => {
+AppointmentRouter.get('/doctor/:id', async (req, res) => {
     const doctorId = req.params.id;
     try {
         const appointments = await Appointment.findAll({
@@ -122,7 +122,7 @@ AppointmentRouter.put('/:id',verifyJWT, async (req, res) => {
 });
 
 // Delete an appointment
-AppointmentRouter.delete('/:id',verifyJWT, async (req, res) => {
+AppointmentRouter.delete('/:id', async (req, res) => {
     try {
         const appointment = await Appointment.findByPk(req.params.id);
         if (!appointment) {

@@ -21,6 +21,7 @@ const AppointmentCard = (appointment) => {
               throw new Error('Failed to delete appointment');
             }
             console.log('Appointment deleted!');
+            window.location.reload();
             // Implement any additional logic after successful deletion here
           })
           .catch((error) => {

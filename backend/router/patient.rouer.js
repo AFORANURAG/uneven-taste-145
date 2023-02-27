@@ -52,22 +52,22 @@ PatientRouter.get('/:patientId',verifyJWT, async (req, res) => {
 });
 
 // POST a new patient
-PatientRouter.post('/',verifyJWT, async (req, res) => {
-    const { name, email, phone, dob , city, country } = req.body.body;
+PatientRouter.post('/', async (req, res) => {
+    const { name, email, phone,  city, country } = req.body.body;
     console.log(req.body)
-    console.log(name, email, phone, dob, city, country)
+    console.log(name, email, phone,  city, country)
     try {
         const patient = await Patient.create({
             name,
             email,
             phone,
-            dob,
+
             city,
             country
         });
         res.json(patient);
     } catch (err) {
-        console.error(err.message);
+        console.error(err);
         res.status(500).send('Server Error');
     }
 });

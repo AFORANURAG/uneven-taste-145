@@ -9,7 +9,6 @@ import '@splidejs/splide/dist/css/splide.min.css';
 
 import Typography from '@mui/material/Typography';
 import MediaCard from "./Doctorcards"
-import { backOut } from "framer-motion";
 import { fontFamily } from "@mui/system";
 import { v4 as uuidv4 } from 'uuid';
 

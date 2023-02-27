@@ -37,7 +37,6 @@ const Dashboard = () => {
           </div>
           <div className='data-card'>
             <h3>Total Pending</h3>
-          
             <div style={{ width: 100, height: 100 }} className="circle">
             <CircularProgressbar value={percentage} text={`${percentage}%`} />
             </div>
