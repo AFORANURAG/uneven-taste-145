@@ -10,7 +10,7 @@ const AppointmentCard = (appointment) => {
         const appointmentId = appointment.id; // Get the ID of the appointment to delete
         const bearerToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYW5la2lzaG9yMDYxMkBnbWFpbC5jb20iLCJyb2xlIjoicGF0aWVudCIsImlhdCI6MTY3NzQyMjA1MSwiZXhwIjoxNjc3NTA4NDUxfQ.c4ErvD0cI7UIbI3_78uRTz58pyVlHrREHTM-bFb3S9A'; // Replace this with your actual bearer token
     
-        fetch(`http://localhost:8080/appointment/${appointmentId}`, {
+        fetch(`https://backend-qbfa.onrender.com/appointment/${appointmentId}`, {
           method: 'DELETE',
           headers: {
             Authorization: `Bearer ${bearerToken}`,

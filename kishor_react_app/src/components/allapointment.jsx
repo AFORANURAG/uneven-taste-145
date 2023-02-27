@@ -7,7 +7,7 @@ function Allapointment(props) {
 
   const getData = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/Appointment/doctor/${id}`, {
+      const res = await fetch(`https://backend-qbfa.onrender.com/Appointment/doctor/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

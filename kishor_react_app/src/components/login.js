@@ -27,7 +27,7 @@ setuserinfo({...userinfo,[name]:value})
 }
 
 function getdoctordata(){
-axios.post("http://localhost:8080/doctor/getdocotorwithpassword",{
+axios.post("https://backend-qbfa.onrender.com/doctor/getdocotorwithpassword",{
  data:{
 ...userinfo
 },
@@ -38,7 +38,7 @@ headers:{
     console.log(res)
     setDoctorDetail(res.data);
     localStorage.setItem("doctordetails",JSON.stringify(res.data))
-window.location.href="http://localhost:3001"
+window.location.href="https://backend-qbfa.onrender.com/"
 }).catch((err)=>{
     console.log(err)
 })
