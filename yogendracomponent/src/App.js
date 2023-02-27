@@ -52,6 +52,8 @@ const paramValue = queryParams.get('email');
       return localStorage.getItem('email') || '';
   }) 
 
+
+  
   return(
     <ChakraProvider theme={theme}>
     <AppointmentDetailContextProvider>
