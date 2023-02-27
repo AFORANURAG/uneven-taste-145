@@ -38,7 +38,7 @@ headers:{
     console.log(res)
     setDoctorDetail(res.data);
     localStorage.setItem("doctordetails",JSON.stringify(res.data))
-window.location.href="https://backend-qbfa.onrender.com/"
+window.location.href="http://localhost:3001"
 }).catch((err)=>{
     console.log(err)
 })
