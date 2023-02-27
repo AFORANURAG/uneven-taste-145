@@ -25,7 +25,7 @@ const [doctor,setDoctor]=useState(()=>{
   <Routes>
   <Route path="/doctorprofile" element={<DoctorCard {...doctor[0]}/>}/>
   
-  <Route path="/allappointments" element={<Allapointment id={doctor[0].doctorId}/>}/>
+  <Route path="/allappointments" element={<Allapointment id={doctor[0]?.doctorId}/>}/>
   <Route path="/login" element={<LoginForm/>}/>
   </Routes>
   </div>
