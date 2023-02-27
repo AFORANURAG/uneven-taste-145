@@ -80,6 +80,9 @@ PUT /doctor/:id;
 
 5)Delete a doctor
 DELETE /doctor/:id
+note You cannot delete doctor if thear is appointment associeted with that doctore 
+to stop accesing someone to yse our system you need to delete login credential of perticular user
+
 
 
 
