@@ -47,7 +47,12 @@ const Doctor = sequelize.define('doctor', {
   fees:{
 type:DataTypes.BIGINT,
 allowNull:false
-  }
+  },
+  password:{
+    type:Sequelize.STRING,
+    allowNull:false
+      }
+
 });
 
 module.exports = Doctor;

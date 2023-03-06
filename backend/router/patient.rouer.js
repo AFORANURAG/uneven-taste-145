@@ -5,7 +5,7 @@ const {verifyJWT}=require("../Middlewares/authentication.middelwere")
 
 // GET all patients
 PatientRouter.get('/',verifyJWT, async (req, res) => {
-    try {
+try {
         const patients = await Patient.findAll();
         res.json(patients);
     } catch (err) {
@@ -61,7 +61,6 @@ PatientRouter.post('/', async (req, res) => {
             name,
             email,
             phone,
-
             city,
             country
         });

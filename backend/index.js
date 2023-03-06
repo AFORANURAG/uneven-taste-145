@@ -33,9 +33,9 @@ app.use("/sendemail",mailRouter)
 app.get("/", (req, res) => {
     res.send({ "msg": "serveris working" })
 })
-app.listen(8080, async () => {
+app.listen(8000, async () => {
     await sequelize;
-    console.log("8080 is Started");
+    console.log("8000 is Started");
 });
 
 
