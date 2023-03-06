@@ -3,8 +3,9 @@ require('dotenv').config()
 const cors = require('cors')
 const pass=process.env.Pass
 // console.log(pass)
-const sequelize = new Sequelize("sql12599947", "sql12599947", "mL5rTrVzs7", {
-    host: 'sql12.freesqldatabase.com',
+const sequelize = new Sequelize("hospitalmanagementsystem", "root", "Anurag@12345", {
+host:"localhost",
+host: '',
     dialect: 'mysql'
 })
 

@@ -1,8 +1,8 @@
 require("dotenv").config()
 const jwt = require('jsonwebtoken');
 const verifyJWT = (req, res, next) => {
- 
-  const token = req.body?.headers?.Authorization?.split(" ")[1]
+ console.log(req.headers)
+  const token = req.headers?.authorization?.split(" ")[1]
   console.log(token)
   if (!token) {
     return res.status(401).json({ message: 'No token provided' });
