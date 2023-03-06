@@ -1,6 +1,7 @@
 import React, { useState,useContext,useEffect } from "react";
 import { Appointmentcontext } from "../../contexts/Appointment.context";
 import { AppointmentcontextDetail } from "../../contexts/Appointmentdetail.context";
+
 import axios from "axios";
 import {
   Box,
@@ -13,6 +14,7 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import CustomDatePicker from "./Datepicker";
+import { backendurl } from "../backendurl";
 const Appointment = () => {
   const [newNote, setNewNote] = useState();
   const {selectedDate,setSelectedDate}=useContext(Appointmentcontext);
@@ -20,6 +22,7 @@ const Appointment = () => {
   const [appointmentdetail,setAppointmentDetail]=useState([]);
   const [name,setName]=useState(()=>{
     let name=localStorage.getItem("name")
+
     if(name){
       return name
     }
@@ -35,7 +38,7 @@ const Appointment = () => {
   console.log(userinfo)
   const [paid,setPaid]=useState("paid")
   const [patientId,setPatientId]=useState(()=>{
-    let patientid=localStorage.getItem("patientId")
+    let patientid=localStorage.getItem("patient")
     if(patientid){
       return patientid
     }
@@ -51,7 +54,7 @@ function sendtopaymentgateway(){
 //send the appointments to appointment with certain details
 //{ dateTime, patientName, doctorId,PaymentStatus,doctorName, patientId, note }
 console.log(patientId)
-axios.post("http://localhost:8080/Appointment",{
+axios.post(`${backendurl}/Appointment`,{
  data:{
   dateTime:selectedDate,
   patientName:name,
@@ -80,7 +83,7 @@ axios.post("http://localhost:8080/Appointment",{
 // let sent an email to the emailid
 function sendmail(){
 console.log(email)
-axios.post("http://localhost:8080/sendemail",{
+axios.post(`${backendurl}/sendemail`,{
 data:{
   ...appointmentdetail,
   email:email
@@ -99,7 +102,7 @@ headers:{
 
 function paymentGateway(){
   console.log(email)
-  axios.post("http://localhost:8080/payments",{
+  axios.post(`${backendurl}/payments`,{
   data:{
     ...appointmentdetail,
     email:email,
@@ -117,6 +120,9 @@ function paymentGateway(){
     console.log(err)
   })
   }
+
+
+
 
 
   return (

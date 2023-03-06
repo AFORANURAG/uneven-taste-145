@@ -1,9 +1,9 @@
-import React,{useState,useEffect} from 'react';
+import React,{useEffect,useContext,useState,useRef} from 'react'
 import axios from "axios";
 import { Container,Grid,GridItem } from '@chakra-ui/react'
 import { Heading } from '@chakra-ui/react'
 import {Departmentcard} from "./departmentcard"
-
+import { backendurl } from '../backendurl';
 const departmentsicon=[{
 imgurl:"https://img.icons8.com/ios/50/null/lungs.png"
 },
@@ -19,16 +19,14 @@ imgurl:"https://img.icons8.com/ios/50/null/lungs.png"
 {
 imgurl:"https://img.icons8.com/ios/50/null/lungs.png"
 },
-           
-
-
-
+        
 ]
 
 export default function Departments() {
 const [department,setDepartments]=useState([])
 const [width,setWidth]=useState(window.innerWidth);
 console.log(width)
+const [Visible,isSetVisible]=useState(false)
 
 useEffect(()=>{
 window.addEventListener("resize",()=>{setWidth(window.innerWidth)})
@@ -43,8 +41,11 @@ useEffect(()=>{
 getdepartments()
 },[])
 
+
+
+
 function getdepartments(){
-    axios.get("http://localhost:8080/Department")
+    axios.get(`${backendurl}/Department`)
   .then(res=>{
     setDepartments(res.data)    
     console.log(res.data)
@@ -62,8 +63,7 @@ function getdepartments(){
         <GridItem >
         <Departmentcard {...el} />
         </GridItem>
-        
-        
+
        )
     })
 

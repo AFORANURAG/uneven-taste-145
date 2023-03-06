@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AppointmentCard from './appointmentshowforDoctor';
+import { backendurl } from './backendurl';
 // import '../css/AppointmentCard.css';
 function Allapointment(props) {
   const { id, token } = props;
@@ -7,7 +8,7 @@ function Allapointment(props) {
 
   const getData = async () => {
     try {
-      const res = await fetch(`https://backend-qbfa.onrender.com/Appointment/doctor/${id}`, {
+      const res = await fetch(`${backendurl}/Appointment/doctor/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

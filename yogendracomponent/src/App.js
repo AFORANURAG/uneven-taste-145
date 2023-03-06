@@ -14,7 +14,14 @@ import Appointment from "./components/Appointment/Appointment"
 import { AppointmentContextProvider } from './contexts/Appointment.context';
 import { AppointmentDetailContextProvider } from './contexts/Appointmentdetail.context';
 import { useState } from 'react';
+import { UserContextProvider } from './contexts/Usercontext.context';
+import Register from './components/Register/Register';
+import axios from "axios";
+import "animate.css"
 function App () {
+
+
+
 
  const [name,setname]=useState(()=>{
   const queryParams = new URLSearchParams(window.location.search);
@@ -28,7 +35,12 @@ function App () {
 const [token,settoken]=useState(()=>{
   const queryParams = new URLSearchParams(window.location.search);
     const paramValue = queryParams.get('token');
-    if (paramValue) {
+    console.log(paramValue,"mai hu don")
+    if(paramValue==null){
+
+    }
+    else if (paramValue) {
+      console.log(paramValue ,"SJDKLAJDKL")
       localStorage.setItem('token', paramValue);
     }
     return localStorage.getItem('token') || '';
@@ -52,12 +64,11 @@ const paramValue = queryParams.get('email');
       return localStorage.getItem('email') || '';
   }) 
 
-
-  
   return(
     <ChakraProvider theme={theme}>
     <AppointmentDetailContextProvider>
     <AppointmentContextProvider>
+    <UserContextProvider>
     <Router>
       <div className='dashboard-container'>
         <SideBar menu={sidebar_menu} />
@@ -71,10 +82,12 @@ const paramValue = queryParams.get('email');
                   <Route exact path="/departments" element={<Departments />} />
                   <Route exact path="/orders" element={< Orders/>} />
                   <Route exact path="/profile" element={<Account/>} />
+                  <Route exact path="/register" element={<Register/>} />
               </Routes>
           </div>
       </div>
     </Router>
+    </UserContextProvider>
     </AppointmentContextProvider>
     </AppointmentDetailContextProvider>
     </ChakraProvider>

@@ -1,5 +1,5 @@
 
-import { useContext } from 'react';
+import { useContext,useRef } from 'react';
 import React from 'react';
 import {
   Modal,
@@ -27,7 +27,7 @@ import {
   } from '@chakra-ui/react';
   import { useNavigate ,Link as Routerlink} from 'react-router-dom';
   import ForgotPasswordForm from './ForgotPassword';
-  import backendurl from "../backendurl/index"
+  import {backendurl} from "../backendurl/index"
   import {ValidateEmail,CheckPassword} from "../validators/Validators"
   import {Usercontext} from "../contexts/Usercontext";
   import {Modalbox} from './Modal';
@@ -41,9 +41,10 @@ export default function Login() {
 const navigate = useNavigate();
 const { isOpen, onOpen, onClose } = useDisclosure()
 const {show,setShow,handleClose,handleShow}=React.useContext(modalcontext);
-
+const ref=useRef("Patient")
+console.log(ref.current.value)
 const {token,setToken,user,setUser,role,setRole,name,setName}=useContext(Usercontext)
-// console.log(user,token);
+// console.log();
 console.log(role)
 function login(){
   // axios.post()
@@ -54,21 +55,22 @@ function login(){
     })
     .then(function (response) {
     console.log(response.data)
+
     localStorage.setItem("token",response.data.token)
-    localStorage.setItem("role",role)
+    localStorage.setItem("role",ref.current.value)
     localStorage.setItem("name",response.data.name)
     //email:user.email,last_name:user.last_name 
     localStorage.setItem("lastname",response.data.last_name)
     localStorage.setItem("email",response.data.email)
   setToken(response.data.token)
       onOpen()
+      
     }).then((data)=>console.log(data))
     .catch(function (error) {
       handleShow()
       console.log(error);
     });
   }else{
-    
     handleShow()
   }
  
@@ -83,9 +85,13 @@ function handleOnChange(e){
 function handleclose(){
   console.log("handle close is clicked")
   onClose();
-  navigate('/');
+  changelocation();
+  // navigate('/');
 }
 
+function changelocation(){
+  window.location.href="http://localhost:5173";
+}
 
 // login krne kai baad token set krunga
     return (
@@ -104,7 +110,7 @@ function handleclose(){
 
             <FormControl id="">
             <FormLabel>role</FormLabel>
-            <Select  value={role}  onChange={(e)=>{setRole(e.target.value)}}  type="text">
+            <Select  defaultValue={"Patient"} ref={ref}   onChange={(e)=>{setRole(e.target.value)}}  type="text">
             <option value='Patient'>Patient</option>
             <option value='Doctor'>Doctor</option>
             <option value='Admin'>Admin</option>

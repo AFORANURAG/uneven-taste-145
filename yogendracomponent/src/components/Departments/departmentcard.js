@@ -1,7 +1,26 @@
-import React from 'react'
+import React,{useEffect,useContext,useState,useRef} from 'react'
 import { Card, CardHeader, CardBody, CardFooter,Button,Image,Stack,Heading,Text } from '@chakra-ui/react'
 import {Link} from "react-router-dom"
 function Departmentcard({imgurl,name,description,departmentId}){
+  const [Visible,isSetVisible]=useState(false)
+
+  const ref=useRef(null);
+  useEffect(()=>{
+  const observer=new IntersectionObserver(([entry])=>{
+  isSetVisible(entry.isIntersecting)
+  })
+  if(ref.current){
+      observer.observe(ref.current)
+  }
+  return ()=>{
+      if(ref.current){
+          observer.unobserve(ref.current);
+      }
+  }
+  },[])
+  
+
+
  function showdoctors(){
     console.log("doctors is showed")
     localStorage.setItem("departmentid",departmentId)
@@ -9,6 +28,8 @@ function Departmentcard({imgurl,name,description,departmentId}){
 // so basically when i am clicking on this it should show me the doctor of that departments    
     return (
     <Card
+    ref={ref}
+    className={Visible?"animate__animated animate__rotateIn":""}
     mt={100}
     direction={{ base: 'column', sm: 'row' }}
     overflow='hidden'

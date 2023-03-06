@@ -73,7 +73,7 @@ const token = jwt.sign({email,name,picture},process.env.JWT_SECRET);
   OauthSignup.create({
 email,name
   }).then(response=>console.log("added successfully",response)).catch(err=>console.log(err))
-const redirectUrl = `http://localhost:5173/?token=${token}&name=${name}&picture=${picture}&email=${email}`;
+const redirectUrl = `https://frontendofhms-v29b.vercel.app/?token=${token}&name=${name}&picture=${picture}&email=${email}`;
 return   res.redirect(redirectUrl);
 }catch (error) {
     console.error(error);

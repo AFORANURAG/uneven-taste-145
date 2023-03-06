@@ -14,7 +14,7 @@ export default function Upperbody() {
   return (
 
     <div className="upperbody">
-    <div className="top-carousel">
+    <div className="top-carousel animate__animated animate__zoomIn">
     <Carousel autoPlay={true} interval={1500} infiniteLoop={true}>
 <div>
     <img src={appointment} style={{borderRadius:"10%"}} />
@@ -32,7 +32,7 @@ export default function Upperbody() {
 </div>
 </Carousel>
   </div>
-<div id="upperbodyimg">
+<div id="upperbodyimg" className='animate__animated animate__backInRight'>
 
 <img style={{marginTop:"15%",marginRight:"20%"}}  src="https://10to8.com/hs-fs/hubfs/Hero%20Image%20WOMAN_1600%20(2).jpg?width=1600&height=1067&name=Hero%20Image%20WOMAN_1600%20(2).jpg" alt="" />
 <h1 class="h1" >Every appointment <span>matters</span></h1>

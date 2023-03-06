@@ -5,7 +5,7 @@ const {verifyJWT}=require("../Middlewares/authentication.middelwere")
 const {authorize}=require("../Middlewares/RoleBasedAuthorisation")
 // Get all doctors
 
-DoctorRouter.get('/',verifyJWT, async (req, res) => {
+DoctorRouter.get('/', async (req, res) => {
     try {
         const doctors = await Doctor.findAll();
         res.json(doctors);

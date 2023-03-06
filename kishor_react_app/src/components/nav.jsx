@@ -18,9 +18,11 @@ function logout(){
   return (
     <div className='nav'>
       <div className="navbar-brand">
-        <img src={logo} className="navbar-logo" alt="Logo" />
-        <h1 href="/" className="navbar-name">Ayuva</h1>
-      </div>
+      <a href="http://localhost:5173">
+      <img src={logo} className="navbar-logo" alt="Logo" />
+      </a>
+        <h1  className="navbar-name">Ayuva</h1>
+        </div>
       <div className="navbar-nav">
         <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
         
@@ -34,12 +36,12 @@ function logout(){
           
           </>}
         <li className="nav-item">
-        
-        
         </li>
       </div>
     </div>
   );
 }
+
+
 
 export default Navbar;

@@ -37,7 +37,7 @@ return (
           borderWidth="1px"
           borderRadius="lg"
           w={{ sm: '100%', md: '540px' }}
-          height={{ sm: '476px', md: '20rem' }}
+          height={{ sm: '476px', md: '25rem' }}
           direction={{ base: 'column', md: 'row' }}
           bg={useColorModeValue('white', 'gray.900')}
           boxShadow={'2xl'}
@@ -74,7 +74,7 @@ return (
               textAlign={'center'}
               color={useColorModeValue('gray.700', 'gray.400')}
               px={3}>
-              {experience} in {specialisation}
+              {experience} years of {specialisation}
             </Text>
 
             <Text
