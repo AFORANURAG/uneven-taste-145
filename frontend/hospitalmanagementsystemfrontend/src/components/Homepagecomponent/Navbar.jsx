@@ -1,8 +1,9 @@
-import { Children, ReactNode, useEffect } from 'react';
-import Ayuva from "../../assets/images/Medical-Care.png"
-import {Link as Routerlink} from "react-router-dom"
-import { useContext } from 'react';
-import {Usercontext} from "../../contexts/Usercontext";
+import { Children, ReactNode, useEffect } from "react";
+import Ayuva from "../../assets/images/Medical-Care.png";
+import { Link as Routerlink } from "react-router-dom";
+import { useContext } from "react";
+import { Usercontext } from "../../contexts/Usercontext";
+import { userdashboardurl } from "../../backendurl/index";
 
 import {
   Box,
@@ -20,191 +21,275 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
-} from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
+} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon, AddIcon } from "@chakra-ui/icons";
 
-const Links = ["Book Appointment","Contact-us at:+917836068460"];
+const Links = ["Book Appointment", "Contact-us at:+917836068460"];
 
-const NavLink = ({ children,path }) => {
-  
-  return( 
+const NavLink = ({ children, path }) => {
+  return (
     <Link
-   marginLeft={[300]}
-    px={3}
-    py={3}
-    fontFamily= {"Noto-serif"}
-    mx={5}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      color:"grey",
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-href={path}
-    >
-   {children}
-  </Link>
-  )
-  };
-
-  const NavLink1 = ({ children,path }) => {
-  
-    return( 
-      <Link
-     marginLeft={["-300px","-200px"]}
+      marginLeft={[300]}
       px={3}
       py={3}
-      fontFamily= {"Noto-serif"}
+      fontFamily={"Noto-serif"}
       mx={5}
-      rounded={'md'}
+      rounded={"md"}
       _hover={{
-        textDecoration: 'none',
-        color:"grey",
-        bg: useColorModeValue('gray.200', 'gray.700'),
+        textDecoration: "none",
+        color: "grey",
+        bg: useColorModeValue("gray.200", "gray.700"),
       }}
-  href={path}
-      >
-     {children}
+      href={path}
+    >
+      {children}
     </Link>
-    )
-    };
-  
+  );
+};
+
+const NavLink1 = ({ children, path }) => {
+  return (
+    <Link
+      marginLeft={["-300px", "-200px"]}
+      px={3}
+      py={3}
+      fontFamily={"Noto-serif"}
+      mx={5}
+      rounded={"md"}
+      _hover={{
+        textDecoration: "none",
+        color: "grey",
+        bg: useColorModeValue("gray.200", "gray.700"),
+      }}
+      href={path}
+    >
+      {children}
+    </Link>
+  );
+};
+
 export default function withAction() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const {token,setToken,user,setUser,role,setRole,name,setName,email,setEmail,lastname,setLastName}=useContext(Usercontext)
-console.log(token,role,name,lastname,email)
- 
-function logout(){
-  setToken("")
-  setRole("")
-  localStorage.removeItem("token")
-  localStorage.removeItem("role")
-}
+  const {
+    token,
+    setToken,
+    user,
+    setUser,
+    setPicture,
+    picture,
+    role,
+    setRole,
+    name,
+    setName,
+    email,
+    setEmail,
+    lastname,
+    setLastName,
+  } = useContext(Usercontext);
+  console.log(token, role, name, lastname, email);
+
+  function reloadonce() {
+    window.location.reload();
+  }
+
+
 useEffect(()=>{
-let token=localStorage.getItem("token")
-let role=localStorage.getItem("role")
-let name=localStorage.getItem("name")
-let lastname=localStorage.getItem("lastname")
-let email=localStorage.getItem("email")
-setEmail(email);
-setLastName(lastname);
-setName(name);
-console.log(email,lastname)
-setToken(token);
-setRole(role);
-},[name])
+// localStorage.removeItem("token")
+localStorage.removeItem("role");
+
+},[token])
+
+  function logout() {
+    setToken("");
+    setRole("");
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("picture");
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
+    // reloadonce();
+  }
+  useEffect(() => {
+    let role = localStorage.getItem("role");
+    let name = localStorage.getItem("name");
+    let lastname = localStorage.getItem("lastname");
+    let email = localStorage.getItem("email");
+    let picture = localStorage.getItem("picture");
+
+    setEmail(email);
+    setLastName(lastname);
+    setName(name);
+    console.log(email, lastname);
+    setPicture(picture);
+  }, [name]);
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
-            size={'md'}
+            size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
-            display={{ md: 'none' }}
+            aria-label={"Open Menu"}
+            display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={'center'}>
-          <Routerlink to={"/"}>
-          <Box>
-          <img style={{width:"20%"}} src={Ayuva} alt="" />
-          </Box>
+          <HStack spacing={8} alignItems={"center"}>
+            <Routerlink to={"/"}>
+              <Box>
+                <img style={{ width: "20%" }} src={Ayuva} alt="" />
+              </Box>
+            </Routerlink>
 
-
-          </Routerlink>
-         
             <HStack
-              as={'nav'}
+              as={"nav"}
               spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-              
-             
-                <NavLink1 key={"45353"} path={`https://userdashboard-mauve.vercel.app//?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Book Appointment</NavLink1>
-                <NavLink key={"789798"} path={`https://userdashboard-mauve.vercel.app//?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Contact-us at:+917836068460</NavLink>
+              display={{ base: "none", md: "flex" }}
+            >
+              <NavLink1
+                key={"45353"}
+                path={`${userdashboardurl}?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}
+              >
+                Book Appointment
+              </NavLink1>
 
+           
 
+              <NavLink
+                key={"789798"}
+                path={`${userdashboardurl}?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}
+              >
+                Contact-us at:+917836068460
+              </NavLink>
             </HStack>
           </HStack>
 
-          <Flex alignItems={'center'}>
-          {!token&&!role &&<>
-          <Routerlink to={"/login"}>
-          <Button
-          variant={'solid'}
-          colorScheme={'teal'}
-          size={'sm'}
-          mr={4}
-          leftIcon={<AddIcon />}>
-          Login
-        </Button>
-          </Routerlink>  
-          
-        
-          <Routerlink to={"/signup"}>
-          <Button
-          variant={'solid'}
-          colorScheme={'teal'}
-          size={'sm'}
-          mr={4}
-          leftIcon={<AddIcon />}>
-          Signup
-        </Button>
-          </Routerlink>
-        </>
-        }
-           
-{role&&token&&<>
-  <NavLink key={"90890"} path={""}>
-  welcome, {name}
-  </NavLink>
-  <Button
-          variant={'solid'}
-          colorScheme={'teal'}
-          size={'sm'}
-          mr={4}
-          onClick={logout}
-          leftIcon={<AddIcon />} >
-          Logout
-        </Button>
+          <Flex alignItems={"center"}>
+            {token? (
+              <>
+                
+              </>
+              )
+:<>
+<Routerlink to={"/login"}>
+                  <Button
+                    variant={"solid"}
+                    colorScheme={"teal"}
+                    size={"sm"}
+                    mr={4}
+                    leftIcon={<AddIcon />}
+                  >
+                    Login
+                  </Button>
 
-  </>}
-          
-{token&&role=="Doctor"&&<>
-<Routerlink to={"/doctordashboard"}>
-          <Button
-          variant={'solid'}
-          colorScheme={'teal'}
-          size={'sm'}
-          mr={4}
-          leftIcon={<AddIcon />}>
-          Doctor dashboard
-        </Button>
-          </Routerlink> 
-</>}
-       
-{token&&role=="Patient"&&<>
-<Link href={`https://userdashboard-mauve.vercel.app/?name=${name}&&token=${token}&&lastName=${lastname}&&email=${email}`}>
-          <Button
-          variant={'solid'}
-          colorScheme={'teal'}
-          size={'sm'}
-          mr={4}
-          leftIcon={<AddIcon />}>
-         User Dashboard
-        </Button>
-        </Link>
+
+                </Routerlink>
+
+
+                
+                <Routerlink to={"/signup"}>
+                  <Button
+                    variant={"solid"}
+                    colorScheme={"teal"}
+                    size={"sm"}
+                    mr={4}
+                    leftIcon={<AddIcon />}
+                  >
+                    Signup
+                  </Button>
+                </Routerlink>
+
+                <Routerlink to={"https://kishor-react-app.vercel.app/"}>
+                <Button
+                  variant={"solid"}
+                  colorScheme={"teal"}
+                  size={"sm"}
+                  mr={4}
+                  leftIcon={<AddIcon />}
+                >
+                 doctor Panel
+                </Button>
+              </Routerlink>      
 
 </>
-}
+            }
 
-        </Flex>
-        </Flex>
+            {token ? (
+              <>
+                <NavLink key={"90890"} path={""}>
+                  {name}
+                </NavLink>
+                <img
+                  style={{ width: "7%", marginRight: "10%" }}
+                  src={picture}
+                  alt=""
+                />
+                <Button
+                  variant={"outline"}
+                  colorScheme={"teal"}
+                  size={"sm"}
+                  mr={4}
+                  
+                  onClick={logout}
+                 width={"150px"}
+                >
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <></>
+            )}
 
+            {token && role == "Doctor" && (
+              <>
+                <Routerlink to={"/doctordashboard"}>
+                  <Button
+                    variant={"solid"}
+                    colorScheme={"teal"}
+                    size={"sm"}
+                    mr={4}
+                    leftIcon={<AddIcon />}
+                  >
+                    Doctor dashboard
+                  </Button>
+                </Routerlink>
+              </>
+            )}
+            {token ? (
+              <>
+                <Link
+                  href={`${userdashboardurl}?name=${name}&&token=${token}&&lastName=${lastname}&&email=${email}`}
+                >
+                  <Button
+                  variant={"outline"}
+                    colorScheme={"teal"}
+                    size={"sm"}
+                    mr={4}
+                    leftIcon={<AddIcon />}
+                  >
+                    User Dashboard
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <></>
+            )}
+          </Flex>
+        </Flex>
         {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-<NavLink key={"45353"} path={`https://userdashboard-mauve.vercel.app//?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Book Appointment</NavLink>
-<NavLink key={"789798"} path={`https://userdashboard-mauve.vercel.app//?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}>Contact-us at:+917836068460</NavLink>
+          <Box pb={4} display={{ md: "none" }}>
+            <Stack as={"nav"} spacing={4}>
+              <NavLink
+                key={"45353"}
+                path={`${userdashboardurl}?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}
+              >
+                Book Appointment
+              </NavLink>
+              <NavLink
+                key={"789798"}
+                path={`${userdashboardurl}?name=${name}&&token=${token}&&lastName=${lastname}&&${email}`}
+              >
+                Contact-us at:+917836068460
+              </NavLink>
             </Stack>
           </Box>
         ) : null}
@@ -212,8 +297,6 @@ setRole(role);
     </>
   );
 }
-
-
 
 // <Menu>
 //               <MenuButton
@@ -236,5 +319,3 @@ setRole(role);
 //                 <MenuItem>Link 3</MenuItem>
 //               </MenuList>
 //             </Menu>
-
-

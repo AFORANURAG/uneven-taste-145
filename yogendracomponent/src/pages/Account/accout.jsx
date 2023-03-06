@@ -180,10 +180,7 @@ const profileImage = useRef(null)
         <FormLabel>First Name</FormLabel>
         <Input focusBorderColor="brand.blue" type="text" value={name} placeholder="" />
       </FormControl>
-      <FormControl id="lastName">
-        <FormLabel>Last Name</FormLabel>
-        <Input focusBorderColor="brand.blue" type="text" placeholder="" value={lastName} />
-      </FormControl>
+     
       <FormControl id="phoneNumber">
         <FormLabel>Phone Number</FormLabel>
         <Input

@@ -6,7 +6,6 @@ const modalcontext=createContext()
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  
     return (
     <modalcontext.Provider value={{show,setShow,handleClose,handleShow}}>
     {children}

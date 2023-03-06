@@ -13,6 +13,7 @@ import {
     Text,
     useColorModeValue,
   } from '@chakra-ui/react';
+import { backendurl } from './backendurl';
 import {useNavigate} from "react-router-dom"
 import axios from "axios"  
 export default function LoginForm() {
@@ -27,7 +28,7 @@ setuserinfo({...userinfo,[name]:value})
 }
 
 function getdoctordata(){
-axios.post("https://backend-qbfa.onrender.com/doctor/getdocotorwithpassword",{
+axios.post(`${backendurl}/doctor/getdocotorwithpassword`,{
  data:{
 ...userinfo
 },
@@ -38,7 +39,7 @@ headers:{
     console.log(res)
     setDoctorDetail(res.data);
     localStorage.setItem("doctordetails",JSON.stringify(res.data))
-window.location.href="https://doctorpanel.vercel.app/"
+window.location.href="http://localhost:3001"
 }).catch((err)=>{
     console.log(err)
 })

@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios';
 import DoctorCard from "./Doctorcard"
+import { backendurl } from '../backendurl';
 export default function Doctors() {
 // get all the doctors here
 const [doctors,setdoctors]=useState()
@@ -28,7 +29,7 @@ useEffect(()=>{
 async function getalldoctors(id){
 console.log(token,id)
 if(id){
-    axios.get(`http://localhost:8080/doctor/Department/${id}`,{
+    axios.get(`${backendurl}/doctor/Department/${id}`,{
         headers:{
           "authorization":`Bearer ${token}`
   }
@@ -39,9 +40,6 @@ if(id){
       console.log(err)
   })
 }
-// axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-
 }
 
 return (

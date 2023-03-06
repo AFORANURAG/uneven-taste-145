@@ -12,7 +12,7 @@ Appointment.belongsTo(Doctor, { foreignKey: 'doctorId' });
 Appointment.belongsTo(Patient, { foreignKey: 'patientId' });
 
 // Get all appointments
-AppointmentRouter.get('/',verifyJWT, async (req, res) => {
+AppointmentRouter.get('/', async (req, res) => {
     try {
         const appointments = await Appointment.findAll({
 

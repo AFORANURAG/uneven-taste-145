@@ -15,8 +15,8 @@ const sidebar_menu = [
         icon: ProductIcon,
         path: '/orders',
         title: 'All Appointments',
-    },
-    
+    }
+    ,
     {
         id: 3,
         icon: UserIcon,
@@ -29,6 +29,7 @@ const sidebar_menu = [
         path: '/departments',
         title: 'Departments',
     }
+    
 ]
 
 export default sidebar_menu;

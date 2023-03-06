@@ -1,2 +1,3 @@
- const backendurl="http://localhost:8080";
- export default backendurl;
+ const backendurl="http://localhost:8000";
+ const userdashboardurl="https://yogendracomponent.vercel.app";
+ export {backendurl,userdashboardurl};

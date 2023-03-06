@@ -1,44 +1,59 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext,useState, useEffect } from "react";
 import DashboardHeader from "../../components/DashboardHeader";
-
+import axios from "axios";
 import all_orders from "../../constants/orders";
 import { calculateRange, sliceData } from "../../utils/table-pagination";
-
+import {UserContext} from "../../contexts/Usercontext.context";
 import "../styles.css";
 import DoneIcon from "../../assets/icons/done.svg";
 import CancelIcon from "../../assets/icons/cancel.svg";
 import RefundedIcon from "../../assets/icons/refunded.svg";
-import axios from "axios"
+import {backendurl} from "../../components/backendurl"
+// import axios from "axios"
 
 function Orders() {
   const [search, setSearch] = useState("");
-  const [orders, setOrders] = useState(all_orders);
+  const [orders, setOrders] = useState(()=>{
+    let data = JSON.parse(localStorage.getItem("orders"));
+    if(data){
+      return data
+    }
+    return all_orders
+  });
   const [page, setPage] = useState(1);
   const [pagination, setPagination] = useState([]);
-
+ 
+const {patientid,setPatientId,token,settoken} = useContext(UserContext)
 
 useEffect(()=>{
+getallorders(patientid);
+},[])
 
-})
-function getallorders(){
-  
+function getallorders(patientid){
+console.log(patientid,"patientid hai")
+axios.get(`${backendurl}/Appointment/patient/${patientid}`,{
+  headers:{
+    "Authorization":`Bearer ${token}`  }
+}).then(response =>{ 
+  console.log(response.data[0].doctor.img)
+  console.log(response.data[0].Patient)
+  localStorage.setItem("orders",JSON.stringify(response.data))
+setOrders(response.data)
+}).catch((err)=>console.log(err))
 }
-
-
   useEffect(() => {
-    setPagination(calculateRange(all_orders, 5));
-    setOrders(sliceData(all_orders, page, 5));
-  }, []);
+    console.log(orders,"inside")
+    setPagination(calculateRange(orders,1 ));
+    setOrders(sliceData(orders, page, 1));
+  }, [page]);
 
-  // Search
   const __handleSearch = (event) => {
     setSearch(event.target.value);
     if (event.target.value !== "") {
       let search_results = orders.filter(
         (item) =>
-          item.first_name.toLowerCase().includes(search.toLowerCase()) ||
-          item.last_name.toLowerCase().includes(search.toLowerCase()) ||
-          item.product.toLowerCase().includes(search.toLowerCase())
+        item?.doctor?.name.toLowerCase().includes(search.toLowerCase()) ||
+        item.note.toLowerCase().includes(search.toLowerCase())
       );
       setOrders(search_results);
     } else {
@@ -46,10 +61,9 @@ function getallorders(){
     }
   };
 
-  // Change Page
   const __handleChangePage = (new_page) => {
     setPage(new_page);
-    setOrders(sliceData(all_orders, new_page, 5));
+    setOrders(sliceData(orders, new_page, 5));
   };
 
   return (
@@ -72,27 +86,28 @@ function getallorders(){
 
         <table>
           <thead>
-            <th>USER-ID</th>
+            <th>Patient-ID</th>
             <th>DATE</th>
             <th>STATUS</th>
             <th>DOCTOR</th>
             <th>DESCRIPTION</th>
             <th>FESS</th>
           </thead>
-
           {orders.length !== 0 ? (
+  
             <tbody>
               {orders.map((order, index) => (
+                
                 <tr key={index}>
                   <td>
-                    <span>{order.id}</span>
+                    <span>{order.patientId}</span>
                   </td>
                   <td>
-                    <span>{order.date}</span>
+                    <span>{order.dateTime}</span>
                   </td>
                   <td>
                     <div>
-                      {order.status === "Paid" ? (
+                      {order.PaymentStatus === "paid" ? (
                         <img
                           src={DoneIcon}
                           alt="paid-icon"
@@ -117,20 +132,20 @@ function getallorders(){
                   <td>
                     <div>
                       <img
-                        src={order.avatar}
+                        src={order?.doctor?.img}
                         className="dashboard-content-avatar"
                         alt={order.first_name + " " + order.last_name}
                       />
                       <span>
-                        {order.first_name} {order.last_name}
+                        {order?.doctor?.name}
                       </span>
                     </div>
                   </td>
                   <td>
-                    <span>{order.product}</span>
+                    <span>{order.note}</span>
                   </td>
                   <td>
-                    <span>${order.price}</span>
+                    <span>${order?.doctor?.fees}</span>
                   </td>
                 </tr>
               ))}

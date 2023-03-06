@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { TextField, Button,Container } from "@mui/material";
 import { Center } from "@chakra-ui/react";
 import { Divider } from "@mui/material";
@@ -131,6 +131,47 @@ const procedures=[
 ]
 
 export default function Middleupperbody() {
+  const [isvisible,setvisible]=useState(false)
+  const ref1=useRef(null);
+  const ref2=useRef(null);
+
+useEffect(()=>{
+const observer=new IntersectionObserver(([entry])=>setvisible(entry.isIntersecting),{rootMargin:"-100px"})
+if(ref1.current){
+  observer.observe(ref1.current)
+}
+
+return ()=>{
+if(ref1.current){
+observer.unobserve(ref1.current)
+}
+  
+  
+}
+
+
+},[])
+
+
+
+useEffect(()=>{
+  const observer=new IntersectionObserver(([entry])=>setvisible(entry.isIntersecting),{rootMargin:"-100px"})
+ 
+  if(ref2.current){
+    observer.observe(ref2.current)
+  }
+  
+  return ()=>{
+ 
+    if(ref2.current){
+      observer.unobserve(ref2.current)
+    }
+    
+  }
+  
+  
+  },[])
+
   const [width,setWidth]=useState(window.innerWidth)
   useEffect(()=>{
 window.addEventListener("resize",()=>setWidth(window.innerWidth))
@@ -146,7 +187,7 @@ return ()=>{
         </h1>
       </div>
 
-      <div className="servicescontainer">
+      <div ref={ref1} className={isvisible?"animate__animated animate__zoomInRight animate__slower servicescontainer":"servicescontainer"}>
         <div className="service">
           <img
             src="https://res.cloudinary.com/dhuxn9owd/image/upload/f_auto,c_limit,w_1920,q_auto/ayu-images/V3/icons/specialities/neuroSciences.svg"
@@ -252,7 +293,7 @@ return ()=>{
         Benefits
       </Divider>
 
-      <div style={{ ...benefits }}>
+      <div  style={{ ...benefits }}>
         <h1
           style={{ fontFamily: "Noto Serif", fontSize: "20px", color: "grey" }}
         >
@@ -260,7 +301,7 @@ return ()=>{
         </h1>
       </div>
 
-      <div className="benefitscontainer">
+      <div  className={isvisible?"animate__animated animate__zoomInLeft benefitscontainer":"benefitscontainer"}>
         {benefitsdata.map((el, index) => {
           return (
             <div key={uuidv4()} className="benefit">
@@ -277,7 +318,7 @@ return ()=>{
         How it works?
       </Divider>
 
-      <div className="workflowcontainer">
+      <div ref={ref2}  className={isvisible?"workflowcontainer animate__animated animate__zoomIn":"workflowcontainer"}>
         {workflowarray.map((el, index) => {
           return (
             <div key={uuidv4()} className="benefit">

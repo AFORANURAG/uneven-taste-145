@@ -17,7 +17,7 @@ import { Link as Routerlink} from 'react-router-dom';
 import {Input} from "@chakra-ui/react"
 import {Usercontext} from "../contexts/Usercontext"
 import axios from 'axios';
-import backendurl from "../backendurl/index"
+import {backendurl} from "../backendurl/index"
 import {ValidateEmail,CheckPassword} from "../validators/Validators"
 import {Modalbox} from './Modal';
 import {modalcontext} from  "../contexts/modalcontext"
@@ -66,32 +66,32 @@ setuserInfo({...userinfo,[name]:value})
 }
 
 // React.useEffect(()=>{
-//   handleSubmit()
-// })
-
-const handleSubmit = (event) => {
-event.preventDefault();
-const data = new FormData(event.currentTarget);
-console.log({
+  //   handleSubmit()
+  // })
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
       email: data.get('email'),
       password: data.get('password'),
-});
-let emailofuser=data.get("email");
-let password=data.get("password")
-if(ValidateEmail(emailofuser)&&CheckPassword(password)){
-  axios.post(backendurl+'/auth/register', {
-    email: data.get('email'),
-    password: data.get('password'),
-    last_name:userinfo.lastName,
-    first_name:userinfo.firstName,
-  }).then((res)=>{
-    console.log("sign up successfull")
-    setIsSubmitted(true);
-    navigate('/login');  
-  })
-  .catch((error)=>{
-      console.log(error)
-    })
+    });
+    let emailofuser=data.get("email");
+    let password=data.get("password")
+    if(ValidateEmail(emailofuser)&&CheckPassword(password)){
+      axios.post(backendurl+'/auth/register', {
+        email: data.get('email'),
+        password: data.get('password'),
+        last_name:userinfo.lastName,
+        first_name:userinfo.firstName,
+      }).then((res)=>{
+        console.log("sign up successfull")
+        setIsSubmitted(true);
+        navigate('/login');  
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
 
 }else{
 handleShow()
@@ -104,8 +104,16 @@ function handleclose(){
   navigate('/login');
 }
 function continuewithgoogle(){
+  // let token=localStorage.getItem("token");
+  console.log(token,"hello rahul gandhi")
   console.log("continue with google is clicked")
-  window.open("http://localhost:8080/oauth/auth/google")
+  console.log(token,"Adaslkdas;ljdlasj")
+  // console.log(!undefined===true)
+  
+  !token?window.open("http://localhost:8000/oauth/auth/google"):alert("already signed in")
+
+      
+  
 }
 
 useEffect(() => {
