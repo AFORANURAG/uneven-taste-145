@@ -97,7 +97,7 @@ changeposition()
 }
 
 function changeposition(){
-    window.location.href="http://localhost:5173";
+    window.location.href="https://frontendofhms-v29b.vercel.app/signup";
 }
 
 
