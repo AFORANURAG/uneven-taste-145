@@ -28,7 +28,7 @@ paymentRouter.post("/",async (req,res)=>{
               bookingDate: Datetime
             },
             mode: 'payment',
-            success_url: 'http://localhost:5173',
+            success_url: 'https://frontendofhms-v29b.vercel.app/',
             cancel_url: 'http://localhost:3000',
             billing_address_collection:"required"
           });

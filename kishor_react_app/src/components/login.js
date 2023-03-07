@@ -20,13 +20,11 @@ export default function LoginForm() {
 const [userinfo,setuserinfo]=useState({email:"",password:"",})
 const [doctordetail,setDoctorDetail]=useState([])
 const navigate=useNavigate()
-
 function handlechange(e){
 console.log(userinfo)
 let {name,value}=e.target
 setuserinfo({...userinfo,[name]:value})
 }
-
 function getdoctordata(){
 axios.post(`${backendurl}/doctor/getdocotorwithpassword`,{
  data:{
@@ -39,7 +37,7 @@ headers:{
     console.log(res)
     setDoctorDetail(res.data);
     localStorage.setItem("doctordetails",JSON.stringify(res.data))
-window.location.href="http://localhost:3001"
+window.location.href="https://kishor-react-app-aforanurag.vercel.app";
 }).catch((err)=>{
     console.log(err)
 })
