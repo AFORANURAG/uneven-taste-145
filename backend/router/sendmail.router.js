@@ -17,10 +17,8 @@ async function sendEmail(email,details){
     auth:{
     type:"OAuth2",
     user:"anuragupadhyay172912313@gmail.com",
-    accessToken:"ya29.a0AVvZVspQ2QzDkUY_aVv_PXAItZKznEZjHeX5cnIzKaHM4fJ0ntEaJ0pwsAlJeHYW1fMHbpsk-iVxV8gA_ETb9YojMlfv_sO3wGtekDpLP2e2A8iYmwktMdtwMCkmIKbuljvrfXpFzqnEZEx_mtWQh8rGEZ95aCgYKATESARASFQGbdwaIvIdRfLaG7RDH_sHJ64ZNKQ0163",
-    refreshToken: '1//04itZXTobZV4gCgYIARAAGAQSNwF-L9Ir6CmlRoLqH0KjhspuGFLhtwuINrS2TM2zU3ZgTv9pfW9vyR2XaTdLGC5WwMQIfckyxUA',
-    clientId:"172721478034-tesnpt2cg096svdifscbo9vm953vac1s.apps.googleusercontent.com",
-    clientSecret:"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",
+    
+  
     }
     })
 
