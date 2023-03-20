@@ -1,2 +1,2 @@
-const backendurl = "http://localhost:8000";
+const backendurl = "https://hospitalmanegementsystem.onrender.com";
 export {backendurl}
