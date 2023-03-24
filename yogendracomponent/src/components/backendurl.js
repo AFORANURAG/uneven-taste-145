@@ -1,2 +1,2 @@
-const backendurl = "https://hospitalmanegementsystem.onrender.com";
+const backendurl = "https://hospitalmanagementsystembackend-gnz7.onrender.com";
 export {backendurl}
