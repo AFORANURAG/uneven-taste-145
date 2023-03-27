@@ -184,21 +184,13 @@ Now lets logout and open doctor panel,
 <p>
 The credentials are provided by the admin to a doctor, So only an admin can register a new doctor to the database
 </p>
-![Screenshot from 2023-03-27 17-39-15](https://user-images.githubusercontent.com/108891203/227937693-b4d41b81-3d7a-4292-a885-fea6f6549849.png)
 <p>
-After that you can the doctor profile,and all appointments, a doctor can also cancel an appointment if he want, and doing that will release the slot and change the availability.
- ![Screenshot from 2023-03-27 18-44-39](https://user-images.githubusercontent.com/108891203/227948549-4eef4def-a320-4f87-8d5b-45727cb2a380.png)
+![Screenshot from 2023-03-27 17-39-15](https://user-images.githubusercontent.com/108891203/227937693-b4d41b81-3d7a-4292-a885-fea6f6549849.png)
+ After that you can the doctor profile,and all appointments, a doctor can also cancel an appointment if he want, and doing that will release the slot and change the availability.
 </p>
+![Screenshot from 2023-03-27 18-44-39](https://user-images.githubusercontent.com/108891203/227948549-4eef4def-a320-4f87-8d5b-45727cb2a380.png)
 <h3>
 lastly you can logout from doctor panel and you will be redirected to homepage of the website.and thats it 
 </h3>
 <h1>Thanks for reading till last.Have a great day. </h1>
 <h3>This documentation is created by Anurag Upadhyay</h3>
-
-
-
-
-
-
-
-
