@@ -19,17 +19,19 @@ presentation video:<a href = "https://drive.google.com/file/d/1AVgPQlaTx3DFsKIX6
 ---
 
 
-### :man_technologist: About Project :
-<h3>Ayuva is an online hospital management system where users can signup and register as a patient, user can book appointments,can pay fees of appointments ,see all of this appointments, can cancel the appointments.We also provided a doctor panel where user can login with the credentials given by admin and can see and cancel all of his appointments, this will be reflected both on doctor side and user or patent side.</h3>
-<h3>
-frontend deployment:<a href = "https://hmsfrontend-eight.vercel.app/">click here to see the deployment</a>
-</h3>
+### :man_technologist: About Contributors :
+<h3>This project has been built by a team of three web developers and it took us almost 5 days to built it, we all were very new to react so it was a great challenge.</h3>
+<div>
+Anurag Upadhyay(me)
+I was the team lead and i was involved in the development of the schema and models design, workflow of the website, I entirely created payment gatewateway,nodemailer,oauth in the backend , and homepage,userdashboard,doctor panel in the frontend. I was involved in managing most of states involved in the frontend and i used React context api for state management and material ui and pure css for frontend design.
+</div>
+
 <h3>
 backend deployment:<a href = "https://hospitalmanagementsystembackend-gnz7.onrender.com/">click here to test the backend apis</span>
 </h3>
 
 <h3>
-presentation video:<a href = "https://drive.google.com/file/d/1AVgPQlaTx3DFsKIX6lzFsbGeStxEbAIn/view">click here to see the full project presentation</span>
+presentation video:<a href = "https://drive.google.com/file/d/1AVgPQlaTx3DFsKIX6lzFsbGeStxEbAIn/view">Click here to see the full project presentation</span>
 </h3>
 
 
@@ -38,10 +40,12 @@ presentation video:<a href = "https://drive.google.com/file/d/1AVgPQlaTx3DFsKIX6
 ### :hammer_and_wrench: Languages and Tools Used In This Project :
 <div >
  
-<!-- <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
+<!-- 
 <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp; -->
 <img src="https://github.com/devicons/devicon/blob/master/icons/express/express-original.svg" title="EXPRESS" alt="EXPRESS" width="40" height="40"/>&nbsp;
+<img src="https://img.shields.io/badge/Nodejs-black?style=for-the-badge&logo=MySQL&logoColor=white" alt="MySql"/>
+<img src="https://img.shields.io/badge/Nodejs-black?style=for-the-badge&logo=Css&logoColor=white" alt="css"/>
 <img src="https://img.shields.io/badge/Nodejs-black?style=for-the-badge&logo=Nodejs&logoColor=white" alt="nodejs"/>
 <img src="https://img.shields.io/badge/Stripe-black?style=for-the-badge&logo=Stripe&logoColor=white" alt="stripe"/>
 <img src="https://img.shields.io/badge/Sequelize-black?style=for-the-badge&logo=sequelize&logoColor=white" alt="sequelize"/>
