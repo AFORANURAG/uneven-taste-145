@@ -3,7 +3,7 @@ import '../css/DoctorCard.css';
 
 const DoctorCard = (user) => {
     const { name, specialization, availability, qualifications, experience, rating, img } = user;
-
+console.log(user)
     return (
       <div className="user-card">
         <div className="user-image">

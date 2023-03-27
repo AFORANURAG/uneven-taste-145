@@ -42,27 +42,26 @@ DoctorRouter.get('/Department/:id', async (req, res) => {
 // info of that doctor
 DoctorRouter.post('/getdocotorwithpassword', async (req, res) => {
     let {email,password}=req.body.data;
+    console.log(email,password)
     console.log(req.params.id)
-    try {
-       newDoctor=await Doctor.findAll({
+   
+Doctor.findOne({
             where: {
                 email:email,
                 password:password
             }
           })
           .then((newDoctor) => {
+              console.log(newDoctor);
             res.json(newDoctor);
 
-            console.log(newDoctor);
           })
           .catch((error) => {
             console.log(error);
+            res.status(500).json({ message: 'Server error' });
           });
           
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Server error' });
-    }
+
 });
 
 

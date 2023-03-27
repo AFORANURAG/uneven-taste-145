@@ -17,15 +17,16 @@ const [doctor,setDoctor]=useState(()=>{
   if(doctordetails) return doctordetails;
   return "koi mil gaya "
 })
+console.log(doctor);
 // DoctorCard
   return (
     <ChakraProvider>
   <div className="app">
   <Navbar/>
   <Routes>
-  <Route path="/doctorprofile" element={<DoctorCard {...doctor[0]}/>}/>
+  <Route path="/doctorprofile" element={<DoctorCard {...doctor}/>}/>
   
-  <Route path="/allappointments" element={<Allapointment id={doctor[0]?.doctorId}/>}/>
+  <Route path="/allappointments" element={<Allapointment id={doctor?.doctorId}/>}/>
   <Route path="/login" element={<LoginForm/>}/>
   </Routes>
   </div>

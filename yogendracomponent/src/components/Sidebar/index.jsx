@@ -95,12 +95,9 @@ localStorage.removeItem(values[i]);
 }
 changeposition()
 }
-
 function changeposition(){
-    window.location.href="https://frontendofhms-v29b.vercel.app/signup";
+    window.location.href="https://hmsfrontend-eight.vercel.app/";
 }
-
-
 function redirect(){
 localStorage.getItem("patient");
 reloader()

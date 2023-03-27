@@ -17,8 +17,10 @@ async function sendEmail(email,details){
     auth:{
     type:"OAuth2",
     user:"anuragupadhyay172912313@gmail.com",
-    
-  
+    clientId: process.env.clientId,
+    clientSecret: process.env.clientSecret,
+    // refreshToken: process.env.refreshToken,
+  accessToken:process.env.accessToken
     }
     })
 

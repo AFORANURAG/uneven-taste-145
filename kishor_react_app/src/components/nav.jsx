@@ -18,7 +18,7 @@ function logout(){
   return (
     <div className='nav'>
       <div className="navbar-brand">
-      <a href="http://localhost:5173">
+      <a href="https://hmsfrontend-eight.vercel.app/">
       <img src={logo} className="navbar-logo" alt="Logo" />
       </a>
         <h1  className="navbar-name">Ayuva</h1>
