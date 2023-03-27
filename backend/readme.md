@@ -8,9 +8,13 @@
 This API is built using the following technologies:
 
 Node.js
+
 Express.js
+
 mssql
+
 sequelize
+
 
 
 <h2>API Endpoints</h2>
