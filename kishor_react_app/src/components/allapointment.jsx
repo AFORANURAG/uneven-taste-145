@@ -5,7 +5,7 @@ import { backendurl } from './backendurl';
 function Allapointment(props) {
   const { id, token } = props;
   const [Data, setData] = useState([]);
-
+// console.log(D)
   const getData = async () => {
     try {
       const res = await fetch(`${backendurl}/Appointment/doctor/${id}`, {
