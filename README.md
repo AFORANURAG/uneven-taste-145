@@ -163,6 +163,7 @@ For A Smooth User experience We have used Stripe Api in test mode.Stripe payment
 <h3>
  Now select the available doctor, we also have rating on each doctor. and after selecting a doctor.A page like this will pop up.
 </h3>
+
 ![Screenshot from 2023-03-27 17-20-03](https://user-images.githubusercontent.com/108891203/227933478-7fbba565-9f23-4062-8d48-40f63a707a11.png)
 
 <p>Note that:<b>
