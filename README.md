@@ -15,10 +15,25 @@ backend deployment:<a href = "https://hospitalmanagementsystembackend-gnz7.onren
 presentation video:<a href = "https://drive.google.com/file/d/1AVgPQlaTx3DFsKIX6lzFsbGeStxEbAIn/view">click here to see the full project presentation</span>
 </h3>
 
+
 ---
 
 
+### :man_technologist: About Project :
+<h3>Ayuva is an online hospital management system where users can signup and register as a patient, user can book appointments,can pay fees of appointments ,see all of this appointments, can cancel the appointments.We also provided a doctor panel where user can login with the credentials given by admin and can see and cancel all of his appointments, this will be reflected both on doctor side and user or patent side.</h3>
+<h3>
+frontend deployment:<a href = "https://hmsfrontend-eight.vercel.app/">click here to see the deployment</a>
+</h3>
+<h3>
+backend deployment:<a href = "https://hospitalmanagementsystembackend-gnz7.onrender.com/">click here to test the backend apis</span>
+</h3>
 
+<h3>
+presentation video:<a href = "https://drive.google.com/file/d/1AVgPQlaTx3DFsKIX6lzFsbGeStxEbAIn/view">click here to see the full project presentation</span>
+</h3>
+
+
+---
 
 ### :hammer_and_wrench: Languages and Tools Used In This Project :
 <div >
