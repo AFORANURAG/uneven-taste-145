@@ -140,6 +140,7 @@ For A Smooth User experience We have used Stripe Api in test mode.Stripe payment
 
 
 <p>after registering successfully , the register panel will dissappear </p>
+
 ![Screenshot from 2023-03-27 17-12-30](https://user-images.githubusercontent.com/108891203/227931745-0d357810-106f-4740-989e-6d780bdb5548.png)
 
 ![Screenshot from 2023-03-27 17-12-18](https://user-images.githubusercontent.com/108891203/227931778-8d1ecd06-f48f-4a84-95aa-7092c06044f9.png)
@@ -175,10 +176,12 @@ homepage,also an email will be send if payment is successfull to the patient
  </p>
  
 ![Screenshot from 2023-03-27 17-34-39](https://user-images.githubusercontent.com/108891203/227936653-5c81b731-9cac-49a8-bb16-28bcacc2d8d5.png)
+
 ![Screenshot from 2023-03-27 17-35-32](https://user-images.githubusercontent.com/108891203/227936881-56b6c6c9-fefb-4a7f-9a07-a0acc2f9a688.png)
 
 <p> on successfull payment, an email will be sent to pateint email  </p>
 </p>
+
 ![Screenshot from 2023-03-27 17-33-46](https://user-images.githubusercontent.com/108891203/227937039-0f0a089a-9e86-46a9-a315-30ab431b3a0c.png)
 
 
