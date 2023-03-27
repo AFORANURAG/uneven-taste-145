@@ -38,13 +38,16 @@ body = {
 }
 
 <h3>Appointments</h3>
-Get all appointments
+Get all appointments.
+
 GET /appointment
 
 Get a single appointment by ID
+
 GET /appointment/:id
 
 Get appointments by doctor ID
+
 GET /appointment/doctor/:id
 
 Get appointments by patient ID
@@ -65,6 +68,7 @@ Update an appointment
 PUT /appointment/:id
 
 body = {
+
     "dateTime": "2023-03-01 10:00:00",
     "patientName": "kumer mane",
     "doctorId": 1,
