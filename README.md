@@ -21,11 +21,11 @@ presentation video:<a href = "https://drive.google.com/file/d/1AVgPQlaTx3DFsKIX6
 
 ### :man_technologist: About Contributors :
 <h3>This project has been built by a team of three web developers and it took us almost 5 days to built it, we all were very new to react so it was a great challenge.</h3>
+
 <div text-align = "center">
 Anurag Upadhyay(me)
 I am a full stack developer.I was the team lead and i was involved in the development of the schema and models design, workflow of the website, I entirely created payment gatewateway,nodemailer,oauth in the backend , and homepage,userdashboard,doctor panel in the frontend with the collaboration of my teammates. I was involved in managing most of states involved in the frontend and i used React context api for state management and material ui and pure css for frontend design.I was also responsible for deployment of backend and frontend.
 As we progress in the project,<b> it sometimes required for us to upgrade the schema by adding a column,so I was also responsible for changing the schema based on the project requirements by writing raw sql query in the cloud database.</b>
- <h3>The frontend is deployed on vercel and bakcend is deployed on render, we are using freemysql as cloud mysql database.</h3>
 </div>
 <div text-align = "center">
 
@@ -70,6 +70,8 @@ presentation video:<a href = "https://drive.google.com/file/d/1AVgPQlaTx3DFsKIX6
 <img src="https://img.shields.io/badge/Reactjs-black?style=for-the-badge&logo=react&logoColor=blue" alt="reactjs"/>
 
 </div>
+ <h3>The frontend is deployed on vercel and bakcend is deployed on render, we are using freemysql as cloud mysql database.</h3>
+
 
 ---
 
