@@ -1,9 +1,9 @@
-# Beauty-Bomber
+# Ayuva Hospital management system.
 <H1>Welcome to this repository and we are excited to share our project with you.Have a great look! </H1>
 ---
 
 ### :man_technologist: About Project :
-<h3> A Clone of famous E-Commerce Website.This Project has been Built by a team of four Stack web developer In 5 days </h3>
+<h3>Ayuva is an online hospital management system where users can signup and register as a patient, user can book appointments,can pay fees of appointments ,see all of this appointments, can cancel the appointments.We also provided a doctor panel where user can login with the credentials given by admin and can see and cancel all of his appointments, this will be reflected both on doctor side and user or patent side.</h3>
 
 ---
 
@@ -15,12 +15,11 @@
   <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
 
- <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=Express Js&logoColor=white" alt="LinkedIn Badge"/>
- <img src="https://img.shields.io/badge/Nodejs-black?style=for-the-badge&logo=Nodejs&logoColor=white" alt="LinkedIn Badge"/>
-<img src="https://img.shields.io/badge/Firebase-yellow?style=for-the-badge&logo=Firebase&logoColor=white" alt="LinkedIn Badge"/>
+<img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=Express Js&logoColor=white" alt="LinkedIn Badge"/>
+<img src="https://img.shields.io/badge/Nodejs-black?style=for-the-badge&logo=Nodejs&logoColor=white" alt="LinkedIn Badge"/>
 <img src="https://img.shields.io/badge/Stripe-black?style=for-the-badge&logo=Stripe&logoColor=white" alt="LinkedIn Badge"/>
-<img src="https://img.shields.io/badge/Mongodb-black?style=for-the-badge&logo=MongoDb&logoColor=white" alt="LinkedIn Badge"/>
-<img src="https://img.shields.io/badge/Splide-black?style=for-the-badge&logo=MongoDb&logoColor=white" alt="LinkedIn Badge"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/sequelize/sequelize-plain.svg" alt="sequelize"/>
+
 </div>
 
 ---
