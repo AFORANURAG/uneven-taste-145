@@ -1,6 +1,8 @@
 ****appointments****
+
 1)To get all appointments:
 GET    /Appointment/ 
+
 2)To get a single appointment by ID:
 GET    /Appointment/:id
 
