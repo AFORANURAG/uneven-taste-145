@@ -1,3 +1,15 @@
+<h1>Medical Appointment System API</h1>
+
+
+
+<h5>This is an API for a medical appointment system that allows patients to schedule appointments with doctors.</h5>
+
+
+
+
+
+
+
 ****appointments****
 
 1)To get all appointments:
