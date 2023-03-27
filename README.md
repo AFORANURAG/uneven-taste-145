@@ -30,7 +30,6 @@ As we progress in the project,<b> it sometimes required for us to upgrade the sc
 <div text-align = "center">
 
 <a href = "https://github.com/KishorDMane">Kishor Mane</a>
- 
 Kishor is a backend developer.He entirely created most of models involved in the backend, he setup almost all routes.He is involved is developing the schema code, models, jwt,authentication,Orm management,he is also responsible for writing a very good documentation of the backend api's as.Almost more than 80% of backend is developed by him and 20% is developed by me.As a team were constantly communcating
 .Kishore is also responsible for developing the doctor panel with react js.
 </div>
