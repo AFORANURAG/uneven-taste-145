@@ -3,165 +3,170 @@
 
 
 <h5>This is an API for a medical appointment system that allows patients to schedule appointments with doctors.</h5>
+<h1>Technologies</h1>
+
+This API is built using the following technologies:
+
+Node.js
+Express.js
+mssql
+sequelize
 
 
+<h2>API Endpoints</h2>
+<h3>Authentication</h3>
 
+Register a new user
 
-
-
-
-****appointments****
-
-1)To get all appointments:
-GET    /Appointment/ 
-
-2)To get a single appointment by ID:
-GET    /Appointment/:id
-
-3)To get appointments by doctor ID:
-GET    /Appointment/doctor/:id
-
-4)To get appointments by patient  ID:
-GET    /Appointment/patient/:id
-
-5)To create a new appointment:
-POST /Appointment/
-body = {
-
-    "dateTime": "2023-03-01 10:00:00",
-    "patientName": "kumer mane",
-    "doctorId": 1,
-    "patientId": 2,
-    "note": "Checkup"
-}
-
-6)To update an appointment:
-PUT /Appointment/:id
-body = {
-
-    "dateTime": "2023-03-01 10:00:00",
-    "patientName": "kumer mane",
-    "doctorId": 1,
-    "patientId": 2,
-    "note": "Checkup"
-}
-
-7)To delete an appointment:
-DELETE /Appointment/:id
-
-
-
-
-
-******************doctors*****************;
-
-1)get all doctors?
-GET /doctor
-2)get all doctors by id
-GET /doctor/:id
-3)Create a new doctor
-4)Get By department id 
-GET doctor/Department/:id
-5)Get By Email
- 
-POST /doctor
-
-body ={
-    
-    "departmentId": 1,
-    "name": "Dr. sunil kumar",
-    "specialization": "Pediatrics",
-    "availability": true,
-    "qualifications": "MD, FAAP",
-    "experience": "5+ years",
-    "img": "https://example.com/doctors/jane-smith.jpg",
-    "rating": 4.9,
-  },
-
-4)Update a doctor
-PUT /doctor/:id;
-body ={
-
-    "doctorId": 1,
-    "departmentId": 1,
-    "name": "Dr. sunil kumar",
-    "specialization": "Pediatrics",
-    "availability": true,
-    "qualifications": "MD, FAAP",
-    "experience": "5+ years",
-    "img": "https://example.com/doctors/jane-smith.jpg",
-    "rating": 4.9,
-  },
-
-
-5)Delete a doctor
-DELETE /doctor/:id
-note You cannot delete doctor if thear is appointment associeted with that doctore 
-to stop accesing someone to yse our system you need to delete login credential of perticular user
-
-
-
-
-******************patient*****************
-
-1)get all patient?
-GET /patient
-
-2)get all patient by id
-GET /patient/:id
-
-3)Create a new patient
-POST /doctor
-
-body =
-{
-    
-    
-    "name": "Dr. sunil kumar",
-
-    "email": "XYZ@gmail.com",
-  
-    "dob": 4.9,
-  }
-
-4)Update a patient
-PUT /patient/:id;
-{
-    
-    
-    "name": "Dr. sunil kumar",
-
-    "email": "XYZ@gmail.com",
-  
-    "dob": 4.9,
-  }
-
-
-5)Delete a patient
-DELETE /patient/:id
-
-
-
-
-******************Signup*****************
-
-3)Create a new user
 POST /auth/register
 
+body = {
+
+    "email": "user@example.com",
+    "first_name": "John",
+    "last_name": "Doe",
+    "password": "password123"
+}
+
+Login
+POST /auth/login
+
+body = {
+
+    "email": "user@example.com",
+    "password": "password123"
+}
+
+<h3>Appointments</h3>
+Get all appointments
+GET /appointment
+
+Get a single appointment by ID
+GET /appointment/:id
+
+Get appointments by doctor ID
+GET /appointment/doctor/:id
+
+Get appointments by patient ID
+GET /appointment/patient/:id
+
+Create a new appointment
+POST /appointment
+
+body = {
+
+    "dateTime": "2023-03-01 10:00:00",
+    "patientName": "kumer mane",
+    "doctorId": 1,
+    "patientId": 2,
+    "note": "Checkup"
+}
+Update an appointment
+PUT /appointment/:id
+
+body = {
+    "dateTime": "2023-03-01 10:00:00",
+    "patientName": "kumer mane",
+    "doctorId": 1,
+    "patientId": 2,
+    "note": "Checkup"
+}
+
+
+Delete an appointment
+DELETE /appointment/:id
+
+
+<h3>Doctors</h3>
+Get all doctors
+GET /doctor
+
+Get a single doctor by ID
+GET /doctor/:id
+
+Create a new doctor
+POST /doctor
+
+body = {
+
+    "departmentId": 1,
+    "name": "Dr. sunil kumar",
+    "specialization": "Pediatrics",
+    "availability": true,
+    "qualifications": "MD, FAAP",
+    "experience": "5+ years",
+    "img": "https://example.com/doctors/jane-smith.jpg",
+    "rating": 4.9
+}
+
+Get doctors by department ID
+GET /doctor/department/:id
+
+Update a doctor
+PUT /doctor/:id
+
+body = {
+
+    "departmentId": 1,
+    "name": "Dr. sunil kumar",
+    "specialization": "Pediatrics",
+    "availability": true,
+    "qualifications": "MD, FAAP",
+    "experience": "5+ years",
+    "img": "https://example.com/doctors/jane-smith.jpg",
+    "rating": 4.9
+}
+
+Delete a doctor
+DELETE /doctor/:id
+
+<h3>Patients</h3>
+
+Get all patients
+GET /patient
+
+Get a single patient by ID
+GET /patient/:id
+
+
+Create a new patient
+POST /patient
+
+body = {
+
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "dob": "1990-01-01"
+}
+
+Update a patient
+
+PUT /patient/:id
+
 body ={
 
-    "email":"kishor3@gmail.com",  
-    "first_name":"Kishor",  
-    "last_name":"mane",  
-    "password":"123456789",
-  
+    "name": "John Smith",
+    "date_of_birth": "1988-05-20",
+    "email": "john.smith@example.com",
+    "phone_number": "+1 555-123-4567",
+    "address": "123 Main St, Anytown, USA"
 }
 
-**************Login************
-POST  /auth/login/
+Delete a patient:
 
-body={
+DELETE /patients/:id
 
-    "email":"kishor3@gmail.com",
-    "password":"123456789"  
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
