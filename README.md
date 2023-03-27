@@ -106,6 +106,7 @@ For A Smooth User experience We have used Stripe Api in test mode.Stripe payment
 <h3>Homepage of the website</h3>
 <p> On Opening of this website You will land to the homepage</p>
 
+
 ![Screenshot from 2023-03-27 16-04-08](https://user-images.githubusercontent.com/108891203/227929786-7643b94c-f7b7-41e0-908b-e98805d837f6.png)
 
 
@@ -124,6 +125,7 @@ For A Smooth User experience We have used Stripe Api in test mode.Stripe payment
 
 
 <p>after filling and signing up , you have to login with the same credentials  and on successfull login this modal will be shown,also if you are able to login or signup successfully , there will be another model for failure</p>
+
 ![Screenshot from 2023-03-27 17-05-05](https://user-images.githubusercontent.com/108891203/227930534-8fa71408-3be9-40c3-b2e5-5998201c616e.png)
 
 ![Screenshot from 2023-03-27 17-07-25](https://user-images.githubusercontent.com/108891203/227930701-770a5acd-2419-4c26-a6dc-d05b44386607.png)
