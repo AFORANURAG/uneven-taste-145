@@ -90,7 +90,7 @@ to stop accesing someone to yse our system you need to delete login credential o
 
 
 
-******************patient*****************;
+******************patient*****************
 
 1)get all patient?
 GET /patient
@@ -131,23 +131,25 @@ DELETE /patient/:id
 
 
 
-******************Signup*****************;
+******************Signup*****************
 
 3)Create a new user
 POST /auth/register
 
 body ={
-"email":"kishor3@gmail.com",  
-  "first_name":"Kishor",  
-  "last_name":"mane",  
-  "password":"123456789",
+
+    "email":"kishor3@gmail.com",  
+    "first_name":"Kishor",  
+    "last_name":"mane",  
+    "password":"123456789",
   
 }
 
 **************Login************
 POST  /auth/login/
 
-body= {
-  "email":"kishor3@gmail.com",
-  "password":"123456789"  
+body={
+
+    "email":"kishor3@gmail.com",
+    "password":"123456789"  
 }
