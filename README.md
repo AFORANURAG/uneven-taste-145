@@ -177,22 +177,28 @@ homepage,also an email will be send if payment is successfull to the patient
 ![Screenshot from 2023-03-27 17-35-32](https://user-images.githubusercontent.com/108891203/227936881-56b6c6c9-fefb-4a7f-9a07-a0acc2f9a688.png)
 
 <p> on successfull payment, an email will be sent to pateint email  </p>
- ![Screenshot from 2023-03-27 17-33-46](https://user-images.githubusercontent.com/108891203/227937039-0f0a089a-9e86-46a9-a315-30ab431b3a0c.png)
 </p>
+![Screenshot from 2023-03-27 17-33-46](https://user-images.githubusercontent.com/108891203/227937039-0f0a089a-9e86-46a9-a315-30ab431b3a0c.png)
+
 
 <h3>
 Now lets logout and open doctor panel, 
 </h3>
+
 ![Screenshot from 2023-03-27 17-37-23](https://user-images.githubusercontent.com/108891203/227937267-cdf60036-f203-48c3-8ddc-962b54db0540.png)
 
 <p>
 The credentials are provided by the admin to a doctor, So only an admin can register a new doctor to the database
 </p>
+
 ![Screenshot from 2023-03-27 17-39-15](https://user-images.githubusercontent.com/108891203/227937693-b4d41b81-3d7a-4292-a885-fea6f6549849.png)
+
 <p>
  After that you can the doctor profile,and all appointments, a doctor can also cancel an appointment if he want, and doing that will release the slot and change the availability.
 </p>
+
 ![Screenshot from 2023-03-27 18-44-39](https://user-images.githubusercontent.com/108891203/227948549-4eef4def-a320-4f87-8d5b-45727cb2a380.png)
+
 <h3>
 lastly you can logout from doctor panel and you will be redirected to homepage of the website.and thats it 
 </h3>
