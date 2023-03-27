@@ -52,8 +52,7 @@ GET doctor/Department/:id
  
 POST /doctor
 
-body =
-{
+body ={
     
     "departmentId": 1,
     "name": "Dr. sunil kumar",
@@ -67,6 +66,7 @@ body =
 
 4)Update a doctor
 PUT /doctor/:id;
+body =
 {
     "doctorId": 1,
     "departmentId": 1,
@@ -136,16 +136,24 @@ POST /auth/register
 
 body =
 {
+
   "email":"kishor3@gmail.com",
+  
   "first_name":"Kishor",
+  
   "last_name":"mane",
-  "password":"123456789"
+  
+  "password":"123456789",
+  
 }
 
 **************Login************
 POST  /auth/login/
 
 body= {
+
   "email":"kishor3@gmail.com",
+  
   "password":"123456789"
+  
 }
