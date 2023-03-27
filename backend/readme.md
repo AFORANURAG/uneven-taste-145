@@ -11,7 +11,7 @@ Node.js
 
 Express.js
 
-mssql
+mysql
 
 sequelize
 
