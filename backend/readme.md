@@ -15,6 +15,7 @@ GET    /Appointment/patient/:id
 5)To create a new appointment:
 POST /Appointment/
 body = {
+
     "dateTime": "2023-03-01 10:00:00",
     "patientName": "kumer mane",
     "doctorId": 1,
@@ -25,6 +26,7 @@ body = {
 6)To update an appointment:
 PUT /Appointment/:id
 body = {
+
     "dateTime": "2023-03-01 10:00:00",
     "patientName": "kumer mane",
     "doctorId": 1,
@@ -66,8 +68,8 @@ body ={
 
 4)Update a doctor
 PUT /doctor/:id;
-body =
-{
+body ={
+
     "doctorId": 1,
     "departmentId": 1,
     "name": "Dr. sunil kumar",
@@ -134,15 +136,10 @@ DELETE /patient/:id
 3)Create a new user
 POST /auth/register
 
-body =
-{
-
-  "email":"kishor3@gmail.com",
-  
-  "first_name":"Kishor",
-  
-  "last_name":"mane",
-  
+body ={
+"email":"kishor3@gmail.com",  
+  "first_name":"Kishor",  
+  "last_name":"mane",  
   "password":"123456789",
   
 }
@@ -151,9 +148,6 @@ body =
 POST  /auth/login/
 
 body= {
-
   "email":"kishor3@gmail.com",
-  
-  "password":"123456789"
-  
+  "password":"123456789"  
 }
