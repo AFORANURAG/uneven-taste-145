@@ -17,8 +17,8 @@
 <img src="https://img.shields.io/badge/Nodejs-black?style=for-the-badge&logo=Nodejs&logoColor=white" alt="nodejs"/>
 <img src="https://img.shields.io/badge/Stripe-black?style=for-the-badge&logo=Stripe&logoColor=white" alt="stripe"/>
 <img src="https://img.shields.io/badge/Sequelize-black?style=for-the-badge&logo=sequelize&logoColor=white" alt="sequelize"/>
-<img src="https://img.shields.io/badge/React-white?style=for-the-badge&logo=react&logoColor=blue" alt="react js"/>
-<img src="https://img.shields.io/badge/nodemailer-black?style=for-the-badge&logo=nodemailer&logoColor=white" alt="sequelize"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="EXPRESS" alt="REACT" width="40" height="40"/>&nbsp;
+ <img src="https://img.shields.io/badge/nodemailer-black?style=for-the-badge&logo=nodemailer&logoColor=white" alt="sequelize"/>
 <img src="https://img.shields.io/badge/materialui-black?style=for-the-badge&logo=materialui&logoColor=white" alt="sequelize"/>
 </div>
 
