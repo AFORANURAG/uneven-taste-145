@@ -10,14 +10,17 @@
 ### :hammer_and_wrench: Languages and Tools Used In This Project :
 <div >
  
-<img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
+<!-- <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
-<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
-
+<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp; -->
 <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=Express Js&logoColor=white" alt="express js"/>
 <img src="https://img.shields.io/badge/Nodejs-black?style=for-the-badge&logo=Nodejs&logoColor=white" alt="nodejs"/>
 <img src="https://img.shields.io/badge/Stripe-black?style=for-the-badge&logo=Stripe&logoColor=white" alt="stripe"/>
 <img src="https://img.shields.io/badge/Sequelize-black?style=for-the-badge&logo=sequelize&logoColor=white" alt="sequelize"/>
+<img src="https://img.shields.io/badge/Sequelize-black?style=for-the-badge&logo=sequelize&logoColor=white" alt="sequelize"/>
+<img src="https://img.shields.io/badge/React-white?style=for-the-badge&logo=react&logoColor=blue" alt="react js"/>
+<img src="https://img.shields.io/badge/nodemailer-black?style=for-the-badge&logo=nodemailer&logoColor=white" alt="sequelize"/>
+<img src="https://img.shields.io/badge/materialui-black?style=for-the-badge&logo=material ui&logoColor=white" alt="sequelize"/>
 </div>
 
 ---
