@@ -46,18 +46,20 @@ Get all appointments.
 
 GET /appointment
 
-Get a single appointment by ID
+Get a single appointment by ID.
 
 GET /appointment/:id
 
-Get appointments by doctor ID
+Get appointments by doctor ID.
 
 GET /appointment/doctor/:id
 
 Get appointments by patient ID
+
 GET /appointment/patient/:id
 
-Create a new appointment
+Create a new appointment.
+
 POST /appointment
 
 body = {
@@ -68,7 +70,8 @@ body = {
     "patientId": 2,
     "note": "Checkup"
 }
-Update an appointment
+Update an appointment.
+
 PUT /appointment/:id
 
 body = {
@@ -81,7 +84,8 @@ body = {
 }
 
 
-Delete an appointment
+Delete an appointment.
+
 DELETE /appointment/:id
 
 
@@ -89,10 +93,12 @@ DELETE /appointment/:id
 Get all doctors
 GET /doctor
 
-Get a single doctor by ID
+Get a single doctor by ID.
+
 GET /doctor/:id
 
-Create a new doctor
+Create a new doctor.
+
 POST /doctor
 
 body = {
@@ -107,10 +113,12 @@ body = {
     "rating": 4.9
 }
 
-Get doctors by department ID
+Get doctors by department ID.
+
 GET /doctor/department/:id
 
-Update a doctor
+Update a doctor.
+
 PUT /doctor/:id
 
 body = {
@@ -125,19 +133,23 @@ body = {
     "rating": 4.9
 }
 
-Delete a doctor
+Delete a doctor.
+
 DELETE /doctor/:id
 
 <h3>Patients</h3>
 
-Get all patients
+Get all patients.
+
 GET /patient
 
-Get a single patient by ID
+Get a single patient by ID.
+
 GET /patient/:id
 
 
-Create a new patient
+Create a new patient.
+
 POST /patient
 
 body = {
