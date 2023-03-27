@@ -21,14 +21,16 @@ presentation video:<a href = "https://drive.google.com/file/d/1AVgPQlaTx3DFsKIX6
 
 ### :man_technologist: About Contributors :
 <h3>This project has been built by a team of three web developers and it took us almost 5 days to built it, we all were very new to react so it was a great challenge.</h3>
-<div>
+<div text-align = "center">
 Anurag Upadhyay(me)
 I am a full stack developer.I was the team lead and i was involved in the development of the schema and models design, workflow of the website, I entirely created payment gatewateway,nodemailer,oauth in the backend , and homepage,userdashboard,doctor panel in the frontend with the collaboration of my teammates. I was involved in managing most of states involved in the frontend and i used React context api for state management and material ui and pure css for frontend design.I was also responsible for deployment of backend and frontend.
 As we progress in the project,<b> it sometimes required for us to upgrade the schema by adding a column,so I was also responsible for changing the schema based on the project requirements by writing raw sql query in the cloud database.</b>
  <h3>The frontend is deployed on vercel and bakcend is deployed on render, we are using freemysql as cloud mysql database.</h3>
 </div>
-<div>
- <a href = "https://github.com/KishorDMane">Kishor Mane</a>
+<div text-align = "center">
+
+<a href = "https://github.com/KishorDMane">Kishor Mane</a>
+ 
 Kishor is a backend developer.He entirely created most of models involved in the backend, he setup almost all routes.He is involved is developing the schema code, models, jwt,authentication,Orm management,he is also responsible for writing a very good documentation of the backend api's as.Almost more than 80% of backend is developed by him and 20% is developed by me.As a team were constantly communcating
 .Kishore is also responsible for developing the doctor panel with react js.
 </div>
