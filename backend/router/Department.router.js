@@ -9,6 +9,7 @@ DepartmentRouter.get('/', async (req, res) => {
         const departments = await Department.findAll();
         res.json(departments);
     } catch (err) {
+        
         console.error(err);
         res.status(500).json({ message: 'Server error' });
     }
